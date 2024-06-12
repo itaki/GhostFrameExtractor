@@ -1,0 +1,270 @@
+set cut_paste_input [stack 0]
+version 15.0 v4
+push 0
+push 0
+push $cut_paste_input
+Group {
+ inputs 3
+ name GhostFrameFootageCreator
+ onCreate "def find_logo(logo):\n    nukepaths = nuke.pluginPath()\n    for path in nukepaths:\n        candidate_path = os.path.join(path, logo)\n        if os.path.exists(candidate_path):\n            return candidate_path\n    return False\n\ndef set_logo(logo_path):\n    n = nuke.thisNode()\n    if logo_path:\n        html_path = f\"<img src='\{logo_path\}' width='50'>   \"\n    else:\n        html_path = \"<span style='font-size:45px;'>&#x1F39E;</span>\"\n\n    html_header = (\n        f\"<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'>\"\n        f\"<div><span style='color:#F5F9F1;'>\{html_path\}</span>\"\n        f\"<font size='6'><span style='color:#F5F9F1;'>GhostFrame</span>\"\n        f\"<span style='color:#FFA100;'>FootageCreator</span>\"\n        f\"<font size='3'><span style='color:#CFE6B2;'></span>\"\n        f\"<span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>\"\n    )\n    n\['header'].setValue(html_header)\n    \nlogo = 'GhostFrameFootageCreator.png'\nlogo_path = find_logo(logo)\nset_logo(logo_path)"
+ knobChanged "import nuke\ndef set_volume_color(color):\n    gizmo.knob('custom_color').setVisible(False)\n    if color == 'blue':\n        nuke.toNode('ColorSwitch').knob('which').setValue(0)\n    elif color == 'green':\n        nuke.toNode('ColorSwitch').knob('which').setValue(1)\n    elif color == 'custom':\n        nuke.toNode('ColorSwitch').knob('which').setValue(2)\n        gizmo.knob('custom_color').setVisible(True)\n\ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisable(overlay)\n    gizmo\['font_scale'].setVisable(overlay)\n    all_nodes = nuke.allNodes()\n    if overlay:\n        for node in all_nodes:\n            if node.Class() == 'Text2':\n                node.knob('disable').setValue(False)\n    else:\n        for node in all_nodes:\n            if node.Class() == 'Text2':\n                node.knob('disable').setValue(True)\n                \ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisible(overlay)\n    gizmo\['font_scale'].setVisible(overlay)\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['disable'].setValue(not overlay)\n\ndef font_selector():\n    font_family, font_style = gizmo.knob('font').getValue()\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        try:\n            node\['font'].setValue(font_family, font_style)\n        except:\n            pass\ndef set_font_scale(scale):\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['global_font_scale'].setValue(scale)\n\n\ngizmo = nuke.thisNode()\nk = nuke.thisKnob()\n\nif k.name() == 'volume_color':\n    color = k.value()\n    set_volume_color(color)\nif k.name() == 'overlay':\n    overlay = k.value()\n    toggle_text_overlays(overlay)\nif k.name() == 'font':\n    font_selector()\nif k.name() == 'font_scale':\n    scale = k.value()\n    set_font_scale(scale)\n\n"
+ tile_color 0xff00bfff
+ selected true
+ xpos 1486
+ ypos 310
+ addUserKnob {20 ghost_frame_footage_creator l GhostFrameFootageCreator}
+ addUserKnob {26 header l "" t "Plug in the footage you want to turn into ghost frame test footage. This gizmo alternates placing the matted elements directly on the selected 'volume' color with full complete frames.\n<br>\nIf your footage lacks a matte channel, you can add one.\n<br>\n<i>Note: Since ghost frame footage is typically shot at 48 frames per second, slow-motion footage works best.</i>\n" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameFootageCreator.png' width='50'></span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>FootageCreator</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
+ addUserKnob {26 ""}
+ addUserKnob {4 volume_color l "<font color=#FFA100>volume color</font>" t "<div style=\"position: relative; display: inline-block; border-bottom: 1px dotted black;\"><span style=\"font-weight:bold;\">volume_color:</span><span class=\"tooltiptext\">The color used for the volume in the footage. Options: blue, green, custom.</span></div>\n" M {blue green custom "" "" "" ""}}
+ addUserKnob {18 custom_color l "custom color" +HIDDEN}
+ custom_color {1 0 1}
+ addUserKnob {6 custom_color_panelDropped l "panel dropped state" +HIDDEN +STARTLINE}
+ addUserKnob {6 overlay l "show text overlays" t "<div style=\"position: relative; display: inline-block; border-bottom: 1px dotted black;\"><span style=\"font-weight:bold;\">overlay:</span><span class=\"tooltiptext\">Toggle to show or hide text overlays on the footage.</span></div>\n" +STARTLINE}
+ overlay true
+ addUserKnob {84 font l "" -STARTLINE}
+ font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+ addUserKnob {7 font_scale l "font scale" R 0 2}
+ font_scale 0.5
+ addUserKnob {26 ""}
+ addUserKnob {26 website l "" +STARTLINE T "<font size=3 color =#444444>by        <a href='https://itaki.com' style='color:#666666;'>itaki</a></font>"}
+ addUserKnob {6 color_rgb_panelDropped l "panel dropped state" +HIDDEN +STARTLINE}
+}
+ Input {
+  inputs 0
+  name Input
+  label "\[value number]"
+  xpos -997
+  ypos -171
+ }
+set N42900e00 [stack 0]
+ Input {
+  inputs 0
+  name Inputmask
+  label "\[value number]"
+  xpos -748
+  ypos -172
+  number 1
+ }
+ Switch {
+  inputs 2
+  which {{"!\[exists parent.input1]"}}
+  name Switch1
+  label "\[value which]"
+  xpos -748
+  ypos 254
+ }
+ Dot {
+  name Dot2
+  note_font_size 24
+  note_font_color 0xff
+  xpos -714
+  ypos 321
+ }
+push $N42900e00
+ Dot {
+  name Dot3
+  note_font_size 24
+  note_font_color 0xff
+  xpos -963
+  ypos 207
+ }
+set Nb17e6400 [stack 0]
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  selected true
+  xpos -997
+  ypos 313
+  disable {{"!\[exists parent.input0]"}}
+ }
+ Constant {
+  inputs 0
+  color {{parent.custom_color x5 0} {parent.custom_color x5 0} {parent.custom_color x5 0} {parent.custom_color x5 0.88}}
+  color_panelDropped true
+  name ConstantCustom
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1239
+  ypos 5
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle1
+  label "\[value in1] - \[value out1]"
+  xpos -1239
+  ypos 125
+ }
+ Constant {
+  inputs 0
+  color {0 1 0 1}
+  color_panelDropped true
+  name ConstantGreen
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1333
+  ypos 6
+ }
+ Constant {
+  inputs 0
+  color {0 0 1 1}
+  color_panelDropped true
+  name ConstantBlue
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1431
+  ypos 5
+ }
+ Switch {
+  inputs 3
+  name ColorSwitch
+  label "\[value which]"
+  xpos -1313
+  ypos 320
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Ghost Frame \[expr \[expr \[frame] / 2] +1]"
+  old_message {{71 104 111 115 116 32 70 114 97 109 101 32 49}
+    }
+  old_expression_markers {{12 12}
+    }
+  box {0 0 {width} {height}}
+  yjustify bottom
+  transforms {{0 2}
+    }
+  cursor_position 40
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name GFText
+  xpos -1313
+  ypos 393
+ }
+ Reformat {
+  format {{{input2.format}}}
+  name ConstantReformat
+  xpos -1313
+  ypos 417
+ }
+ Input {
+  inputs 0
+  name Inputbg
+  label "\[value number]"
+  xpos -1678
+  ypos -118
+  number 2
+ }
+ Dot {
+  name Dot1
+  note_font_size 24
+  note_font_color 0xff
+  xpos -1644
+  ypos 554
+ }
+push $Nb17e6400
+ Dot {
+  name Dot4
+  note_font_size 24
+  note_font_color 0xff
+  xpos -1500
+  ypos 207
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input2]"}}
+  name Switch3
+  label "\[value which]"
+  xpos -1534
+  ypos 546
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Hero Frame \[expr \[frame] / 2]"
+  old_message {{72 101 114 111 32 70 114 97 109 101 32 51}
+    }
+  old_expression_markers {{11 11}
+    }
+  box {0 0 {width} {height}}
+  xjustify right
+  yjustify bottom
+  transforms {{0 2}
+    }
+  cursor_position 29
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name HFText
+  xpos -1534
+  ypos 592
+ }
+ Switch {
+  inputs 2
+  which {{"frame % 2"}}
+  name Switch2
+  label "\[value which]"
+  xpos -1313
+  ypos 587
+ }
+ Merge2 {
+  inputs 2
+  bbox B
+  name Merge3
+  label "\[if \{\[value mix]<1\} \{ value mix \}]"
+  xpos -1002
+  ypos 592
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Original Frame \[frame]"
+  old_message {{79 114 105 103 105 110 97 108 32 70 114 97 109 101 32 49}
+    }
+  old_expression_markers {{15 15}
+    }
+  box {0 0 {width} {height}}
+  transforms {{0 2}
+    }
+  cursor_position 14
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name OFText
+  xpos -1002
+  ypos 616
+ }
+ Output {
+  name Output1
+  xpos -1002
+  ypos 787
+ }
+end_group
