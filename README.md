@@ -1,17 +1,11 @@
 # GhostFrameExtractor for Nuke
 
-**GhostFrameExtractor** is a sophisticated Nuke gizmo developed to extract ghost frames from footage efficiently. This tool enhances your visual effects workflow by isolating and processing ghost frames, providing flexibility and precision.
+This repository contains 2 gizmos, GhostFrameExtractor and GhostFrameFootageCreator. The first is the core tool and what you would use to seperate ghost frame footage that was shot on a production volume. It splits the footage in HERO frames (those which will be seen in the edit) and MATTE frames. The tool has many different methods for creating new MATTE frames that match perfectly to the HERO frames. 
 
-## Key Features:
-- **Automated Extraction**: Seamlessly extract ghost frames from your footage.
-- **Exstensible with Plugins**: Can customize to your workflow using the plugins you have.
-- **Enhanced Workflow**: Simplifies complex tasks and saves time in post-production.
+The second gizmo is a simple tool for creating ghost frame footage to play and test with. Since undoubtably clients and production companies may want to see tests before commiting to shooting this way. 
 
-**GhostFrameFootageCreator** is a Nuke gizmo designed to streamline the creation of ghost frame test footage. This tool allows you to alternate between different color volumes and the orginal plate to generate test footage.
+Also contained in this repository are some Nuke scripts showing simple examples as well as a bunch footage that was shot ghost frame as well as generated test footage. 
 
-## Key Features:
-- **Easy Integration**: Simply plug in your footage and let the gizmo handle the rest.
-- **Customizable Overlays**: Toggle text overlays on or off.
-- **Volume Color Options**: Choose between blue, green, or a custom color.
+The gizmos can be installed using the script in the gizmo directly, just add the directory to your menu.py file. But the better way to install them would be through a gizmo manager like [NukeShared](https://maxvanleeuwen.com/project/nukeshared/) and just putting them and the icons in the ./Repository/Nodes/Image directory.
 
 For more detailed information, visit our [GhostFrameExtractor webpage](https://www.itaki.com/ghostframeextractor-for-nuke/).
