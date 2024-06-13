@@ -9,9 +9,9 @@ This repository contains 2 gizmos, GhostFrameExtractor and GhostFrameFootageCrea
 Also contained in this repository are some Nuke scripts showing simple examples as well as a bunch footage that was shot ghost frame as well as generated test footage. 
 
 The gizmos can be installed using the script in the gizmo directly, just put the GhostFrameGizmos folder in your .nuke directory and add 
-'''python
+```python
 nuke.pluginAddPath( 'GhostFrameGizmos' )
-'''
+```
 to your menu.py file. 
 
 
