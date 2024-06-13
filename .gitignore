@@ -3,6 +3,7 @@
 _*
 *_log.json
 *.nk~
+*.autosave
 
 # Ingnore nuke junk files
 
