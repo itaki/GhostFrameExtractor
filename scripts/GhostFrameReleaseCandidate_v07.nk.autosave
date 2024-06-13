@@ -3,7 +3,7 @@
 version 15.0 v4
 define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 <layout version="1.0">
-    <window x="0" y="25" w="5120" h="2107" screen="0">
+    <window x="0" y="25" w="5120" h="2107" maximized="1" screen="0">
         <splitter orientation="1">
             <split size="40"/>
             <dock id="" hideTitles="1" activePageId="Toolbar.1">
@@ -11,11 +11,11 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
             </dock>
             <split size="5076" stretch="1"/>
             <splitter orientation="1">
-                <split size="2252"/>
+                <split size="2186"/>
                 <dock id="" activePageId="DAG.1">
                     <page id="DAG.1"/>
                 </dock>
-                <split size="654"/>
+                <split size="720"/>
                 <dock id="" activePageId="Properties.1" focus="true">
                     <page id="Properties.1"/>
                     <page id="uk.co.thefoundry.backgroundrenderview.1"/>
@@ -159,7 +159,7 @@ Dot {
  xpos 1520
  ypos 72
 }
-set N8350be00 [stack 0]
+set N8af57a00 [stack 0]
 ColorWheel {
  inputs 0
  gamma 0.45
@@ -189,7 +189,7 @@ Merge2 {
  ypos 185
 }
 push 0
-push $N8350be00
+push $N8af57a00
 Group {
  inputs 3
  name GhostFrameFootageCreator
@@ -222,7 +222,7 @@ Group {
   xpos -997
   ypos -171
  }
-set N83409600 [stack 0]
+set N8ae70c00 [stack 0]
  Input {
   inputs 0
   name Inputmask
@@ -246,7 +246,7 @@ set N83409600 [stack 0]
   xpos -714
   ypos 321
  }
-push $N83409600
+push $N8ae70c00
  Dot {
   name Dot3
   note_font_size 24
@@ -254,7 +254,7 @@ push $N83409600
   xpos -963
   ypos 207
  }
-set N83245e00 [stack 0]
+set N8ae1ce00 [stack 0]
  Copy {
   inputs 2
   from0 rgba.alpha
@@ -360,7 +360,7 @@ set N83245e00 [stack 0]
   xpos -1644
   ypos 554
  }
-push $N83245e00
+push $N8ae1ce00
  Dot {
   name Dot4
   note_font_size 24
@@ -1156,8 +1156,8 @@ Group {
   xpos -1618
   ypos -4290
  }
-set N688d1800 [stack 0]
-push $N688d1800
+set N184b1c00 [stack 0]
+push $N184b1c00
  Dot {
   name Dot3
   note_font_size 24
@@ -1189,7 +1189,7 @@ push $N688d1800
   xpos -1284
   ypos -3910
  }
-push $N688d1800
+push $N184b1c00
  Switch {
   inputs 2
   which 1
@@ -1205,7 +1205,7 @@ push $N688d1800
   xpos -1618
   ypos -3739
  }
-set N688d3600 [stack 0]
+set N184bfe00 [stack 0]
  Dot {
   name Dot6
   note_font_size 24
@@ -1219,7 +1219,7 @@ set N688d3600 [stack 0]
   xpos -1284
   ypos -3669
  }
-push $N688d3600
+push $N184bfe00
  AppendClip {
   inputs 2
   lastFrame 195
@@ -1229,7 +1229,7 @@ push $N688d3600
   xpos -1284
   ypos -3527
  }
-push $N688d3600
+push $N184bfe00
  Switch {
   inputs 2
   which 1
@@ -1261,7 +1261,7 @@ push $N688d3600
   xpos -1618
   ypos -2708
  }
-set N688d5800 [stack 0]
+set N18462800 [stack 0]
  Dot {
   name Dot20
   note_font_size 24
@@ -1292,7 +1292,7 @@ set N688d5800 [stack 0]
   xpos -340
   ypos -1788
  }
-set N688d6400 [stack 0]
+set N1fe4cc00 [stack 0]
  Dot {
   name Dot54
   note_font_size 24
@@ -1300,7 +1300,7 @@ set N688d6400 [stack 0]
   xpos 373
   ypos -1788
  }
-set N688d6800 [stack 0]
+set N89493a00 [stack 0]
  Dot {
   name Dot55
   note_font_size 24
@@ -1308,7 +1308,7 @@ set N688d6800 [stack 0]
   xpos 1037
   ypos -1788
  }
-set N688d6c00 [stack 0]
+set N89494400 [stack 0]
  Dot {
   name Dot2
   note_font_size 24
@@ -1316,7 +1316,7 @@ set N688d6c00 [stack 0]
   xpos 1652
   ypos -1788
  }
-set N688d8200 [stack 0]
+set N89488c00 [stack 0]
  Dot {
   name Dot9
   note_font_size 24
@@ -1324,7 +1324,7 @@ set N688d8200 [stack 0]
   xpos 2298
   ypos -1788
  }
-set N688d8600 [stack 0]
+set N89486e00 [stack 0]
  Dot {
   name Dot36
   note_font_size 24
@@ -1339,7 +1339,7 @@ set N688d8600 [stack 0]
   xpos 3518
   ypos -1788
  }
-set N688d8e00 [stack 0]
+set N8947dc00 [stack 0]
  OFXcom.genarts.sapphire.time.s_retime_v1 {
   Mode "Retime Speed"
   speed 0.5
@@ -1384,7 +1384,7 @@ set N688d8e00 [stack 0]
   ypos -754
  }
 push 0
-push $N688d8600
+push $N89486e00
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
@@ -1414,14 +1414,14 @@ push $N688d8600
   ypos -766
   disable true
  }
-push $N688d8200
+push $N89488c00
  ABME_Retime.gizmo {
   name ABME_Retime_interpolate
   xpos 1618
   ypos -772
   disable true
  }
-push $N688d6c00
+push $N89494400
  OFlow2 {
   input.last 195
   timing2 Frame
@@ -1432,7 +1432,7 @@ push $N688d6c00
   xpos 1003
   ypos -766
  }
-push $N688d6800
+push $N89493a00
  Kronos {
   input.last 195
   retimedChannels all
@@ -1446,7 +1446,7 @@ push $N688d6800
   xpos 339
   ypos -755
  }
-push $N688d6400
+push $N1fe4cc00
  OFlow2 {
   input.last 195
   interpolation Blend
@@ -1565,8 +1565,8 @@ push $N688d6400
   xpos 587
   ypos 506
  }
-set N68ba8c00 [stack 0]
-push $N688d5800
+set Nbf0c0200 [stack 0]
+push $N18462800
  Retime {
   input.first 2
   input.first_lock true
@@ -1585,7 +1585,7 @@ push $N688d5800
   xpos -1652
   ypos -2427
  }
-set N68b7ec00 [stack 0]
+set Nbf0a6a00 [stack 0]
  Dot {
   name Dot18
   note_font_size 24
@@ -1600,7 +1600,7 @@ set N68b7ec00 [stack 0]
   xpos 6588
   ypos -2060
  }
-set N68b9be00 [stack 0]
+set Nbf07b600 [stack 0]
  Dot {
   name Dot31
   note_font_size 24
@@ -1608,7 +1608,7 @@ set N68b9be00 [stack 0]
   xpos 6840
   ypos -2060
  }
-set N68b82600 [stack 0]
+set Nbf042c00 [stack 0]
  Dot {
   name Dot12
   note_font_size 24
@@ -1616,7 +1616,7 @@ set N68b82600 [stack 0]
   xpos 7109
   ypos -2061
  }
-set N68b86c00 [stack 0]
+set Nbf049a00 [stack 0]
  Dot {
   name Dot10
   note_font_size 24
@@ -1624,7 +1624,7 @@ set N68b86c00 [stack 0]
   xpos 7338
   ypos -2061
  }
-set N68b57200 [stack 0]
+set Nbf035e00 [stack 0]
  Dot {
   name Dot11
   note_font_size 24
@@ -1632,7 +1632,7 @@ set N68b57200 [stack 0]
   xpos 7557
   ypos -2061
  }
-set N68b50600 [stack 0]
+set Nbf020c00 [stack 0]
  Dot {
   name Dot38
   note_font_size 24
@@ -1692,7 +1692,7 @@ set N68b50600 [stack 0]
   ypos -1965
  }
 push 0
-push $N68b50600
+push $Nbf020c00
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
@@ -1722,14 +1722,14 @@ push $N68b50600
   ypos -1962
   disable true
  }
-push $N68b57200
+push $Nbf035e00
  ABME_Retime.gizmo {
   name ABME_Retime3
   xpos 7304
   ypos -1964
   disable true
  }
-push $N68b86c00
+push $Nbf049a00
  OFlow2 {
   input.last 194
   timing2 Frame
@@ -1743,7 +1743,7 @@ push $N68b86c00
   xpos 7075
   ypos -1952
  }
-push $N68b82600
+push $Nbf042c00
  Kronos {
   input.last 194
   retimedChannels all
@@ -1756,7 +1756,7 @@ push $N68b82600
   xpos 6806
   ypos -1957
  }
-push $N68b9be00
+push $Nbf07b600
  OFlow2 {
   input.last 194
   interpolation Blend
@@ -1782,7 +1782,7 @@ push $N68b9be00
   xpos 7109
   ypos -1702
  }
-set N68a30a00 [stack 0]
+set Nbe742200 [stack 0]
  Dot {
   name Dot22
   note_font_size 24
@@ -1797,7 +1797,7 @@ set N68a30a00 [stack 0]
   ypos -1458
   disable true
  }
-push $N68a30a00
+push $Nbe742200
  Dot {
   name Dot15
   note_font_size 24
@@ -1817,7 +1817,7 @@ push $N68a30a00
   ypos -1382
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N68a30a00
+push $Nbe742200
  Dot {
   name Dot21
   note_font_size 24
@@ -1837,7 +1837,7 @@ push $N68a30a00
   ypos -1374
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N68a30a00
+push $Nbe742200
  Dot {
   name Dot19
   note_font_size 24
@@ -1856,7 +1856,7 @@ push $N68a30a00
   ypos -1375
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N68a30a00
+push $Nbe742200
  Dot {
   name Dot17
   note_font_size 24
@@ -1877,7 +1877,7 @@ push $N68a30a00
   xpos 7023
   ypos -1222
  }
-set N68e4a800 [stack 0]
+set N1e08fc00 [stack 0]
  Dot {
   name Dot27
   note_font_size 24
@@ -1903,8 +1903,8 @@ set N68e4a800 [stack 0]
   xpos 5236
   ypos -964
  }
-set N68e4b200 [stack 0]
-push $N688d8e00
+set N1e090600 [stack 0]
+push $N8947dc00
  Dot {
   name Dot25
   note_font_size 24
@@ -1920,7 +1920,7 @@ push $N688d8e00
   xpos 4692
   ypos -1731
  }
-set N68e4ba00 [stack 0]
+set N1e090e00 [stack 0]
  Dot {
   name Dot32
   note_font_size 24
@@ -1928,7 +1928,7 @@ set N68e4ba00 [stack 0]
   xpos 4916
   ypos -1728
  }
-set N68e4c400 [stack 0]
+set N1e078a00 [stack 0]
  Dot {
   name Dot29
   note_font_size 24
@@ -1950,7 +1950,7 @@ set N68e4c400 [stack 0]
   xpos 5643
   ypos -866
  }
-set N68e4cc00 [stack 0]
+set N1e076c00 [stack 0]
  Copy {
   inputs 2
   from0 forward.u
@@ -1973,7 +1973,7 @@ set N68e4cc00 [stack 0]
   xpos 5643
   ypos -488
  }
-push $N68e4a800
+push $N1e08fc00
  Dot {
   name Dot34
   note_font_size 24
@@ -1981,7 +1981,7 @@ push $N68e4a800
   xpos 8261
   ypos -1214
  }
-set N68e49800 [stack 0]
+set N1e077c00 [stack 0]
  Shuffle2 {
   fromInput1 {{0} B}
   in1 backward
@@ -2007,7 +2007,7 @@ set N68e49800 [stack 0]
   xpos 8227
   ypos -951
  }
-push $N68e4cc00
+push $N1e076c00
  STMap {
   inputs 2
   uv rgb
@@ -2037,9 +2037,9 @@ push $N68e4cc00
   xpos 7449
   ypos -87
  }
-set N68e4e800 [stack 0]
-push $N68e4b200
-push $N68e4c400
+set N1e07ae00 [stack 0]
+push $N1e090600
+push $N1e078a00
  TimeOffset {
   time_offset 1
   time ""
@@ -2054,7 +2054,7 @@ push $N68e4c400
   xpos 4882
   ypos -836
  }
-set N68e4f200 [stack 0]
+set N1e07b800 [stack 0]
  Copy {
   inputs 2
   from0 forward.u
@@ -2077,7 +2077,7 @@ set N68e4f200 [stack 0]
   xpos 4882
   ypos -356
  }
-push $N68e49800
+push $N1e077c00
  Dot {
   name Dot33
   note_font_size 24
@@ -2110,7 +2110,7 @@ push $N68e49800
   xpos 8604
   ypos -957
  }
-push $N68e4f200
+push $N1e07b800
  STMap {
   inputs 2
   uv rgb
@@ -2140,7 +2140,7 @@ push $N68e4f200
   xpos 6688
   ypos -87
  }
-set N68c05c00 [stack 0]
+set N1e07f800 [stack 0]
  Switch {
   inputs 2
   which {{frame%2 x43 1}}
@@ -2149,7 +2149,7 @@ set N68c05c00 [stack 0]
   xpos 6994
   ypos -95
  }
-set N68e53200 [stack 0]
+set N1e07fc00 [stack 0]
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
@@ -2178,7 +2178,7 @@ set N68e53200 [stack 0]
   xpos 7120
   ypos 360
  }
-push $N68e53200
+push $N1e07fc00
  Kronos {
   input.first 0
   input.last 743
@@ -2190,7 +2190,7 @@ push $N68e53200
   xpos 6931
   ypos 360
  }
-push $N68e53200
+push $N1e07fc00
  OFlow2 {
   input.last 2
   timing2 Frame
@@ -2200,8 +2200,8 @@ push $N68e53200
   xpos 6798
   ypos 373
  }
-push $N68c05c00
-push $N68e4e800
+push $N1e07f800
+push $N1e07ae00
  Merge2 {
   inputs 2
   operation average
@@ -2211,8 +2211,8 @@ push $N68e4e800
   xpos 6654
   ypos 369
  }
-push $N68c05c00
-push $N68e4e800
+push $N1e07f800
+push $N1e07ae00
  Switch {
   inputs 6
   which 4
@@ -2221,7 +2221,7 @@ push $N68e4e800
   xpos 6798
   ypos 542
  }
-push $N68e4ba00
+push $N1e090e00
  Dot {
   name Dot28
   note_font_size 24
@@ -2366,7 +2366,7 @@ push $N68e4ba00
   xpos 6832
   ypos 1201
  }
-set N68e67e00 [stack 0]
+set N1e0a2a00 [stack 0]
  Merge2 {
   inputs 2
   operation average
@@ -2376,8 +2376,8 @@ set N68e67e00 [stack 0]
   xpos 6798
   ypos 1961
  }
-push $N68e67e00
-push $N68ba8c00
+push $N1e0a2a00
+push $Nbf0c0200
  Switch {
   inputs 3
   name parent_method_switch
@@ -2419,7 +2419,7 @@ push $N68ba8c00
   xpos -1276
   ypos 1975
  }
-set N68e69a00 [stack 0]
+set N1e0a4600 [stack 0]
  Dot {
   name Dot44
   note_font_size 24
@@ -2427,7 +2427,7 @@ set N68e69a00 [stack 0]
   xpos -1276
   ypos 2694
  }
-set N68e6ca00 [stack 0]
+set N1e0a7600 [stack 0]
  Dot {
   name Dot45
   note_font_size 24
@@ -2435,7 +2435,7 @@ set N68e6ca00 [stack 0]
   xpos -1276
   ypos 3107
  }
-push $N68b7ec00
+push $Nbf0a6a00
  Text2 {
   font_size_toolbar 100
   font_width_toolbar 100
@@ -2478,8 +2478,8 @@ push $N68b7ec00
   xpos -1623
   ypos 1962
  }
-set N68e72400 [stack 0]
-push $N68e69a00
+set N1e0ad000 [stack 0]
+push $N1e0a4600
  Merge2 {
   inputs 2
   operation difference
@@ -2492,8 +2492,8 @@ push $N68e69a00
   xpos -1506
   ypos 2340
  }
-push $N68e72400
-push $N68e6ca00
+push $N1e0ad000
+push $N1e0a7600
  Switch {
   inputs 2
   which 1
@@ -2523,7 +2523,7 @@ add_layer {matte matte.red matte.green matte.blue}
   ypos 3075
   postage_stamp true
  }
-set N68e73800 [stack 0]
+set N1e0ae400 [stack 0]
  FrameRange {
   first_frame 1
   last_frame 97
@@ -2608,7 +2608,7 @@ set N68e73800 [stack 0]
   xpos 6904
   ypos -136
  }
-push $N68e73800
+push $N1e0ae400
  Viewer {
   frame_range 1-100
   monitorOutNDISenderName "NukeX - GhostFrameReleaseCandidate_v02 - Viewer1"
@@ -2618,7 +2618,7 @@ push $N68e73800
   ypos -1916
  }
 end_group
-set N688c0200 [stack 0]
+set N5655a600 [stack 0]
 Dot {
  name Dot1
  note_font "Gotham Bold Italic"
@@ -2627,7 +2627,7 @@ Dot {
  xpos 577
  ypos -258
 }
-push $N688c0200
+push $N5655a600
 Shuffle2 {
  fromInput1 {{0} B}
  in1 matte
@@ -2640,7 +2640,7 @@ Shuffle2 {
  ypos -258
  postage_stamp true
 }
-push $N688c0200
+push $N5655a600
 Viewer {
  frame_range 1-100
  frame_range_lock true
