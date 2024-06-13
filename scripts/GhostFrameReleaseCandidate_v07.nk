@@ -11,40 +11,40 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
             </dock>
             <split size="5076" stretch="1"/>
             <splitter orientation="1">
-                <split size="2346"/>
-                <splitter orientation="2">
-                    <split size="631"/>
-                    <dock id="" activePageId="DAG.1" focus="true">
-                        <page id="DAG.1"/>
-                    </dock>
-                    <split size="1456"/>
-                    <dock id="" activePageId="DAG.2">
-                        <page id="DAG.2"/>
-                    </dock>
-                </splitter>
-                <split size="718"/>
-                <dock id="" activePageId="com.adrianpueyo.KnobScripterPane">
-                    <page id="com.adrianpueyo.KnobScripterPane"/>
+                <split size="2269"/>
+                <dock id="" activePageId="DAG.1">
+                    <page id="DAG.1"/>
+                    <page id="DAG.2"/>
                 </dock>
-                <split size="653"/>
-                <dock id="" activePageId="Properties.1">
+                <split size="637"/>
+                <dock id="" activePageId="Properties.1" focus="true">
                     <page id="Properties.1"/>
+                    <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+                    <page id="Scenegraph.1"/>
                 </dock>
-                <split size="1347"/>
+                <split size="2162"/>
                 <splitter orientation="2">
-                    <split size="996"/>
+                    <split size="1680"/>
                     <dock id="" activePageId="Viewer.1">
                         <page id="Viewer.1"/>
                     </dock>
-                    <split size="1091"/>
+                    <split size="407"/>
                     <splitter orientation="1">
-                        <split size="672"/>
-                        <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
-                            <page id="uk.co.thefoundry.scripteditor.1"/>
+                        <split size="473"/>
+                        <dock id="" activePageId="Pixel Analyzer.1">
+                            <page id="Pixel Analyzer.1"/>
                         </dock>
-                        <split size="671"/>
-                        <dock id="" activePageId="uk.co.thefoundry.NukeServerSocket">
-                            <page id="uk.co.thefoundry.NukeServerSocket"/>
+                        <split size="567"/>
+                        <dock id="" activePageId="uk.co.thefoundry.histogram.1">
+                            <page id="uk.co.thefoundry.histogram.1"/>
+                        </dock>
+                        <split size="590"/>
+                        <dock id="" activePageId="uk.co.thefoundry.waveformscope.1">
+                            <page id="uk.co.thefoundry.waveformscope.1"/>
+                        </dock>
+                        <split size="520"/>
+                        <dock id="" activePageId="uk.co.thefoundry.vectorscope.1">
+                            <page id="uk.co.thefoundry.vectorscope.1"/>
                         </dock>
                     </splitter>
                 </splitter>
@@ -55,8 +55,9 @@ define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 }
 Root {
  inputs 0
- name /Users/michaelmcreynolds/Dropbox/GhostFrameExtractor/scripts/GhostFrameReleaseCandidate_v05.nk
+ name /Users/michaelmcreynolds/Dropbox/GhostFrameExtractor/scripts/GhostFrameReleaseCandidate_v07.nk
  project_directory "\[python \{nuke.script_directory()\}]"
+ frame 84
  last_frame 185
  lock_range true
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
@@ -77,13 +78,13 @@ Root {
 BackdropNode {
  inputs 0
  name BackdropNode1
- tile_color 0x36615401
+ tile_color 0x666666ff
  label "<center><img src=\"DustBust.png\"> Ghost Frame Extraction Example"
  note_font_size 30
- xpos 34
- ypos -670
- bdwidth 457
- bdheight 1150
+ xpos 452
+ ypos -655
+ bdwidth 367
+ bdheight 549
 }
 BackdropNode {
  inputs 0
@@ -159,7 +160,7 @@ Dot {
  xpos 1520
  ypos 72
 }
-set Nb1654e00 [stack 0]
+set N80bda200 [stack 0]
 ColorWheel {
  inputs 0
  gamma 0.45
@@ -189,7 +190,7 @@ Merge2 {
  ypos 185
 }
 push 0
-push $Nb1654e00
+push $N80bda200
 Group {
  inputs 3
  name GhostFrameFootageCreator
@@ -199,7 +200,7 @@ Group {
  xpos 1486
  ypos 310
  addUserKnob {20 ghost_frame_footage_creator l GhostFrameFootageCreator}
- addUserKnob {26 header l "" t "Plug in the footage you want to turn into ghost frame test footage. This gizmo alternates placing the matted elements directly on the selected 'volume' color with full complete frames.\n<br>\nIf your footage lacks a matte channel, you can add one.\n<br>\n<i>Note: Since ghost frame footage is typically shot at 48 frames per second, slow-motion footage works best.</i>\n" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameFootageCreator.png' width='50'></span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>FootageCreator</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
+ addUserKnob {26 header l "" t "Plug in the footage you want to turn into ghost frame test footage. This gizmo alternates placing the matted elements directly on the selected 'volume' color with full complete frames.\n<br>\nIf your footage lacks a matte channel, you can add one.\n<br>\n<i>Note: Since ghost frame footage is typically shot at 48 frames per second, slow-motion footage works best.</i>\n" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameFootageCreator.png' width='50'>   </span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>FootageCreator</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
  addUserKnob {26 ""}
  addUserKnob {4 volume_color l "<font color=#FFA100>volume color</font>" t "<div style=\"position: relative; display: inline-block; border-bottom: 1px dotted black;\"><span style=\"font-weight:bold;\">volume_color:</span><span class=\"tooltiptext\">The color used for the volume in the footage. Options: blue, green, custom.</span></div>\n" M {blue green custom "" "" "" ""}}
  addUserKnob {18 custom_color l "custom color" +HIDDEN}
@@ -222,7 +223,7 @@ Group {
   xpos -997
   ypos -171
  }
-set N42900e00 [stack 0]
+set N80150c00 [stack 0]
  Input {
   inputs 0
   name Inputmask
@@ -246,7 +247,7 @@ set N42900e00 [stack 0]
   xpos -714
   ypos 321
  }
-push $N42900e00
+push $N80150c00
  Dot {
   name Dot3
   note_font_size 24
@@ -254,7 +255,7 @@ push $N42900e00
   xpos -963
   ypos 207
  }
-set Nb17e6400 [stack 0]
+set N80159a00 [stack 0]
  Copy {
   inputs 2
   from0 rgba.alpha
@@ -360,7 +361,7 @@ set Nb17e6400 [stack 0]
   xpos -1644
   ypos 554
  }
-push $Nb17e6400
+push $N80159a00
  Dot {
   name Dot4
   note_font_size 24
@@ -381,9 +382,9 @@ push $Nb17e6400
   font_width_toolbar 100
   font_height_toolbar 100
   message "Hero Frame \[expr \[frame] / 2]"
-  old_message {{72 101 114 111 32 70 114 97 109 101 32 51}
+  old_message {{72 101 114 111 32 70 114 97 109 101 32 52 50}
     }
-  old_expression_markers {{11 11}
+  old_expression_markers {{11 12}
     }
   box {0 0 {width} {height}}
   xjustify right
@@ -474,27 +475,28 @@ Write {
 Read {
  inputs 0
  file_type mov
- file ../test_footage/LLDP_close_up_GF_denoised.mov
+ file ../test_footage/LLDP_close_up_GF_denoised.mp4
  format "1920 1080 0 0 1920 1080 1 HD_1080"
- last 185
- origlast 185
+ last 193
+ origlast 193
  origset true
+ auto_alpha true
  name Read1
- selected true
- xpos 213
- ypos -282
+ tile_color 0x989898ff
+ note_font Gotham
+ xpos 599
+ ypos -545
 }
 Group {
  name GhostFrameExtractor
  onCreate "def find_logo(logo):\n    nukepaths = nuke.pluginPath()\n    for path in nukepaths:\n        candidate_path = os.path.join(path, logo)\n        if os.path.exists(candidate_path):\n            return candidate_path\n    return False\n\ndef set_logo(logo_path):\n    n = nuke.thisNode()\n    if logo_path:\n        html_path = f\"<img src='\{logo_path\}' width='50'>   \"\n    else:\n        html_path = \"<span style='font-size:45px;'>&#x1F47B;</span>\"\n\n    html_header = (\n        f\"<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'>\"\n        \n        f\"<div><span style='color:#F5F9F1;'>\{html_path\}</span>\"\n        f\"<font size='6'><span style='color:#F5F9F1;'>GhostFrame</span>\"\n        f\"<span style='color:#FFA100;'>Extractor</span>\"\n        f\"<font size='3'><span style='color:#CFE6B2;'></span>\"\n        f\"<span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>\"\n    )\n    n\['header'].setValue(html_header)\n\n\ndef check_plugs(plugins):\n    \n    all_plugins = nuke.plugins()\n    #all_plugins = \[path for path in all_paths if path.endswith('.dylib')]\n    #print(all_plugins)\n\n    for plugin in all_plugins:\n        for key in plugins:\n            if key in plugin:\n                plugins\[key] = True\n\n    for plugin in plugins:\n        if plugins\[plugin] == True:  # Check the value associated with the key\n            print(f'FOUND \{plugin\}')\n            gizmo.knob(plugin).setValue(True)\n            \n        else:\n            print(f'not found \{plugin\}')\n            gizmo.knob(plugin).setValue(False)\n    return plugins\n\nplugins = \{'forward': True, 'backward': True, 'average_motion': True, 'Blend': True, 'Kronos' : True, 'OFlow' : True, 'VectorGenerator' : True, 'SmartVectors': True, 'ABME' : False, 'RAFT' : False, 'NNFlowVector' : False, 'Twixtor' : False, 'BCC3Optical_Flow' : False, 'S_Retime' : False \}\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\ninstalled_plugins = check_plugs(plugins)\n            \n# List all the options\nparent_methods = \['interpolate', 'vector extract']\nall_interpolation_methods = \['Blend', 'Kronos', 'OFlow', 'ABME', 'Twixtor','BCC3Optical_Flow', 'S_Retime']\nall_vector_generators = \['VectorGenerator', 'SmartVectors', 'ABME', 'RAFT', 'NNFlowVector' ]\nall_vector_post_processors = \['forward', 'backward', 'average_motion', 'OFlow', 'Kronos',  'Twixtor']\n\navailable_interpolation_methods = \[method for method in all_interpolation_methods if method in installed_plugins and installed_plugins\[method]]\navailable_vector_generators = \[generator for generator in all_vector_generators if generator in installed_plugins and installed_plugins\[generator]]\navailable_post_processors = \[process for process in all_vector_post_processors if process in installed_plugins and installed_plugins\[process]]\n# Set all the options\ngizmo.knob('parent_method').setValues(parent_methods)\ngizmo.knob('matte_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('hero_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('vector_generator').setValues(available_vector_generators)\ngizmo.knob('vector_post').setValues(available_post_processors)\n\nlogo = 'GhostFrameExtractor.png'\nlogo_path = find_logo(logo)\nset_logo(logo_path)"
- knobChanged "import nuke\n\ntesting = False\n\n# Helper function to get a node\ndef get_node(name):\n    node = nuke.toNode(name)\n    if node is None and testing:\n        print(f\"Node '\{name\}' not found.\")\n    return node\n\n# Helper function to set knob values\ndef set_knob_value(node_name, knob_values):\n    node = get_node(node_name)\n    if node:\n        for knob_name, knob_value in knob_values.items():\n            knob = node.knob(knob_name)\n            if knob:\n                if isinstance(knob_value, list):\n                    if knob.isAnimated():\n                        knob.clearAnimated()\n                        knob.setAnimated()\n                        for value, frame in knob_value:\n                            knob.setValueAt(value, frame)\n                    else:\n                        knob.setValue(knob_value\[0]\[1])\n                else:\n                    knob.setValue(knob_value)\n\ndef get_frame_range():\n    input_node = gizmo.input(0)\n    if input_node is not None:\n        first_frame = input_node.firstFrame()\n        last_frame = input_node.lastFrame()\n        set_knob_value('InputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        set_knob_value('MatteFrameHold', \{'firstFrame': first_frame + 1\})\n\n        matte_frame = 1 if add_matte_frame() else 0\n        last_frame += matte_frame\n        set_knob_value('AppendMatteFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('EndFrameHold', \{'firstFrame': last_frame - 1\})\n        last_frame += add_end_frame(first_frame, last_frame)\n        set_knob_value('AppendEndFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('OutputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        \n        return \[first_frame, last_frame]\n    return \[1, 100]\n\ndef add_matte_frame():\n    add_frame_switch = get_node('add_frame_switch')\n    if gizmo\['add_frame'].value():\n        add_frame_switch\['which'].setValue(1)\n        return True\n    else:\n        add_frame_switch\['which'].setValue(0)\n        return False\n\ndef add_end_frame(first_frame, last_frame):\n    total_frames = last_frame - first_frame\n    add_end_frame_switch = get_node('add_end_frame_switch')\n    if total_frames % 2 != 0:\n        add_end_frame_switch\['which'].setValue(1)\n        return 1\n    else:\n        add_end_frame_switch\['which'].setValue(0)\n        return 0\n\ndef propogate_frame_range(frame_range):\n    f, l = frame_range\n    new_last_frame = ((l - f) * 2) + f\n    hero_last_frame = (l - f - 1) // 2 + f\n    if testing:\n        print(f'Refreshing frame range, first frame \{f\}, last frame \{l\}')\n\n    nodes = \{\n        'PlateRetime': \{'input.first': f, 'input.last': l, 'output.first': f, 'output.last': new_last_frame\},\n        'OFlowPlateBlend': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorPlate': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'BCCOpticalFlow1': \{'start_offset_frame': f\},\n        'S_Retime1': \{'start_frame': f\},\n        'RetimeInterpolated': \{'input.first': f + 1, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\},\n        'HeroRetime': \{'input.first': f + 1, 'input.last': l, 'output.first': f, 'output.last': hero_last_frame\},\n        'DoublePlateFrames': \{'input.first': f, 'input.last': new_last_frame, 'timingFrame2': \[(f, f), ((new_last_frame * 2) - 1, new_last_frame)]\},\n        'OFlowBlend': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorHero': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'OutputFrameRange2': \{'first_frame': f, 'last_frame': hero_last_frame\},\n        'RetimeExtracted': \{'input.first': f, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\}\n    \}\n\n    for node_name, knob_values in nodes.items():\n        set_knob_value(node_name, knob_values)\n\ndef output_type(output):\n    if output == 'hero plate':\n        set_knob_value('output_switch', \{'which': 1\})\n        gizmo\['tile_color'].setValue(131583)\n\n    else:\n        set_knob_value('output_switch', \{'which': 0\})\n        gizmo\['tile_color'].setValue(131071)\n\ndef select_parent_method(parent_method):\n    method_index = \{'interpolate': 0, 'vector extract': 1, 'average': 2\}.get(parent_method, 0)\n    set_knob_value('parent_method_switch', \{'which': method_index\})\n    gizmo\['interpolation_group'].setVisible(parent_method == 'interpolate')\n    gizmo\['extract_group'].setVisible(parent_method in \['vector extract', 'average'])\n\ndef select_matte_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('interpolated_switch', \{'which': method_index\})\n    gizmo\['giblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['gikronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['gioflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['giabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['gitwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['giboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['gisapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime_interpolate', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorPlate', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow1', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime1', \{'disable': interpolation_method != 'S_Retime'\})\n\ndef select_hero_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('hero_interpolation_swtich', \{'which': method_index\})\n    gizmo\['vgblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['vgkronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['vgoflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['vgabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['vgtwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['vgboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['vgsapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime3', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorHero', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow2', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime2', \{'disable': interpolation_method != 'S_Retime'\})\n\ndef select_hero_vector_generator(vector_generator):\n    method_index = \{'VectorGenerator': 0, 'SmartVectors': 1, 'ABME': 2, 'RAFT': 3, 'NNFlowVector': 4\}.get(vector_generator, 0)\n    set_knob_value('vector_switch', \{'which': method_index\})\n    gizmo\['vectorgenerator'].setVisible(vector_generator == 'VectorGenerator')\n    gizmo\['smartvector'].setVisible(vector_generator == 'SmartVectors')\n    gizmo\['abme'].setVisible(vector_generator == 'ABME')\n    gizmo\['raft'].setVisible(vector_generator == 'RAFT')\n    gizmo\['nnflowvector'].setVisible(vector_generator == 'NNFlowVector')\n    set_knob_value('ABME_SV1', \{'disable': vector_generator != 'ABME'\})\n    set_knob_value('RAFT1', \{'disable': vector_generator != 'RAFT'\})\n    set_knob_value('NNFlowVector1', \{'disable': vector_generator != 'NNFlowVector'\})\n\ndef set_uv_channels(vector_post_processor):\n    method_index = \{'forward': 0, 'backward': 1, 'average_motion': 2, 'OFlow': 3, 'Kronos': 4, 'Twixtor': 5\}.get(vector_post_processor, 0)\n    set_knob_value('SwitchMotionType', \{'which': method_index\})\n    gizmo\['vpost_oflow'].setVisible(vector_post_processor == 'OFlow')\n    gizmo\['vpost_kronos'].setVisible(vector_post_processor == 'Kronos')\n    gizmo\['vpost_twixtor'].setVisible(vector_post_processor == 'Twixtor')\n\ndef set_distortion_method(distortion_method):\n    method_index = 1 if distortion_method == 'IDistort' else 0\n    set_knob_value('SwitchBackward', \{'which': method_index\})\n    set_knob_value('SwitchForward', \{'which': method_index\})\n\ndef label_setter():\n    output_type = gizmo\['output_type'].value()\n    if output_type == 'hero plate':\n        label = 'HERO'\n    else:\n        parent_method = gizmo\['parent_method'].value()\n        if parent_method == 'interpolate':\n            label = gizmo\['matte_interpolation'].value()\n        else:\n            label = f\"\{gizmo\['hero_interpolation'].value()\}\\n\{gizmo\['vector_generator'].value()\}\\n\{gizmo\['distortion_method'].value()\}\\n\{gizmo\['vector_post'].value()\}\"\n    gizmo\['label'].setValue(label)\n    \ndef create_shuffle():\n   \n    # Get the root node\n    root = nuke.root()\n    \n    # Deselect all nodes to ensure the new node is correctly connected to the gizmo\n    for node in nuke.allNodes():\n        node\['selected'].setValue(False)\n    \n    # Create a new Shuffle2 node in the root context\n    with root:\n        shuffle_node = nuke.createNode('Shuffle2')\n    \n    # Set the properties to shuffle the 'matte' layer into the RGB channels\n    shuffle_node\['in1'].setValue('matte')\n    shuffle_node\['postage_stamp'].setValue(True)  # Enable the postage stamp for easier identification\n\n    # Set the RGB channels to be mapped from 'matte'\n    shuffle_node\['red'].setValue('matte.red')\n    shuffle_node\['green'].setValue('matte.green')\n    shuffle_node\['blue'].setValue('matte.blue')\n    shuffle_node\['alpha'].setValue('matte.alpha')  # Optionally, map the alpha channel as well\n\n    # Set the label for easier identification in the node graph\n    shuffle_node\['label'].setValue('Matte to RGB')\n    \n    # Position the node below the gizmo for better visibility\n    shuffle_node.setXYpos(gizmo.xpos(), gizmo.ypos() + 100)\n    \n    # Connect the shuffle node to the gizmo's output\n    shuffle_node.setInput(0, gizmo)\n\n\ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisible(overlay)\n    gizmo\['font_scale'].setVisible(overlay)\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['disable'].setValue(not overlay)\n\ndef font_selector():\n    font_family, font_style = gizmo.knob('font').getValue()\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        try:\n            node\['font'].setValue(font_family, font_style)\n        except:\n            pass\n\n\ndef set_font_scale(scale):\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['global_font_scale'].setValue(scale)\n\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\nk = nuke.thisKnob()  # the knob that activated knobChanged\nframe_range_changing_knobs = \['inputChange', 'add_frame', 'output_type', 'refresh']\n\n# Turns on knobs when testing\ngizmo\['print_all_knobs'].setVisible(testing)\n\n# Define a mapping of knob names to functions\nknob_function_map = \{\n    'text_overlays': lambda: toggle_text_overlays(k.value()),\n    'font': lambda: font_selector(),\n    'font_scale': lambda: set_font_scale(k.value()),\n    'output_type': lambda: (output_type(k.value()), label_setter()),\n    'parent_method': lambda: (select_parent_method(k.value()), label_setter()),\n    'create_shuffle': lambda: (create_shuffle()),\n    'matte_interpolation': lambda: (select_matte_interpolation_method(k.value()), label_setter()),\n    'hero_interpolation': lambda: (select_hero_interpolation_method(k.value()), label_setter()),\n    'vector_generator': lambda: (select_hero_vector_generator(k.value()), label_setter()),\n    'distortion_method': lambda: (set_distortion_method(k.value()), label_setter()),\n    'vector_post': lambda: (set_uv_channels(k.value()), label_setter()),\n    'difference_viewer': lambda: set_knob_value('diff_switch', \{'which': int(k.value())\})\n\}\n\n# Only take action if the particular knob was changed\nif k.name() in frame_range_changing_knobs:\n    frame_range = get_frame_range()\n    propogate_frame_range(frame_range)\nif k.name() in knob_function_map:\n    knob_function_map\[k.name()]()\n"
- tile_color 0x1ffff
- label Kronos
- selected true
- xpos 213
- ypos -167
+ knobChanged "import nuke\n\ntesting = False\n\n# Helper function to get a node\ndef get_node(name):\n    node = nuke.toNode(name)\n    if node is None and testing:\n        print(f\"Node '\{name\}' not found.\")\n    return node\n\n# Helper function to set knob values\ndef set_knob_value(node_name, knob_values):\n    node = get_node(node_name)\n    if node:\n        for knob_name, knob_value in knob_values.items():\n            knob = node.knob(knob_name)\n            if knob:\n                if isinstance(knob_value, list):\n                    if knob.isAnimated():\n                        knob.clearAnimated()\n                        knob.setAnimated()\n                        for value, frame in knob_value:\n                            knob.setValueAt(value, frame)\n                    else:\n                        knob.setValue(knob_value\[0]\[1])\n                else:\n                    knob.setValue(knob_value)\n\ndef get_frame_range():\n    input_node = gizmo.input(0)\n    if input_node is not None:\n        first_frame = input_node.firstFrame()\n        last_frame = input_node.lastFrame()\n        set_knob_value('InputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        set_knob_value('MatteFrameHold', \{'firstFrame': first_frame + 1\})\n\n        matte_frame = 1 if add_matte_frame() else 0\n        last_frame += matte_frame\n        set_knob_value('AppendMatteFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('EndFrameHold', \{'firstFrame': last_frame - 1\})\n        last_frame += add_end_frame(first_frame, last_frame)\n        set_knob_value('AppendEndFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('OutputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        \n        return \[first_frame, last_frame]\n    return \[1, 100]\n\ndef add_matte_frame():\n    add_frame_switch = get_node('add_frame_switch')\n    if gizmo\['add_frame'].value():\n        add_frame_switch\['which'].setValue(1)\n        return True\n    else:\n        add_frame_switch\['which'].setValue(0)\n        return False\n\ndef add_end_frame(first_frame, last_frame):\n    total_frames = last_frame - first_frame\n    add_end_frame_switch = get_node('add_end_frame_switch')\n    if total_frames % 2 != 0:\n        add_end_frame_switch\['which'].setValue(1)\n        return 1\n    else:\n        add_end_frame_switch\['which'].setValue(0)\n        return 0\n\ndef propogate_frame_range(frame_range):\n    f, l = frame_range\n    new_last_frame = ((l - f) * 2) + f\n    hero_last_frame = (l - f - 1) // 2 + f\n    if testing:\n        print(f'Refreshing frame range, first frame \{f\}, last frame \{l\}')\n\n    nodes = \{\n        'PlateRetime': \{'input.first': f, 'input.last': l, 'output.first': f, 'output.last': new_last_frame\},\n        'OFlowPlateBlend': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorPlate': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'BCCOpticalFlow1': \{'start_offset_frame': f\},\n        'S_Retime1': \{'start_frame': f\},\n        'RetimeInterpolated': \{'input.first': f + 1, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\},\n        'HeroRetime': \{'input.first': f + 1, 'input.last': l, 'output.first': f, 'output.last': hero_last_frame\},\n        'DoublePlateFrames': \{'input.first': f, 'input.last': new_last_frame, 'timingFrame2': \[(f, f), ((new_last_frame * 2) - 1, new_last_frame)]\},\n        'OFlowBlend': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorHero': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'OutputFrameRange2': \{'first_frame': f, 'last_frame': hero_last_frame\},\n        'RetimeExtracted': \{'input.first': f, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\}\n    \}\n\n    for node_name, knob_values in nodes.items():\n        set_knob_value(node_name, knob_values)\n\ndef output_type(output):\n    if output == 'hero plate':\n        set_knob_value('output_switch', \{'which': 1\})\n        gizmo\['tile_color'].setValue(131583)\n\n    else:\n        set_knob_value('output_switch', \{'which': 0\})\n        gizmo\['tile_color'].setValue(131071)\n\ndef select_parent_method(parent_method):\n    method_index = \{'interpolate': 0, 'vector extract': 1, 'average': 2\}.get(parent_method, 0)\n    set_knob_value('parent_method_switch', \{'which': method_index\})\n    gizmo\['interpolation_group'].setVisible(parent_method == 'interpolate')\n    gizmo\['extract_group'].setVisible(parent_method in \['vector extract', 'average'])\n\ndef select_matte_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('interpolated_switch', \{'which': method_index\})\n    gizmo\['giblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['gikronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['gioflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['giabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['gitwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['giboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['gisapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime_interpolate', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorPlate', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow1', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime1', \{'disable': interpolation_method != 'S_Retime'\})\n\n    interpolated_switch = get_node('interpolated_switch')\n    time_offset = get_node('TimeOffset2')\n\n    if interpolated_switch and time_offset:\n        # Disconnect TimeOffset2 from interpolated_switch\n        for i in range(interpolated_switch.inputs()):\n            if interpolated_switch.input(i) == time_offset:\n                interpolated_switch.setInput(i, None)\n                break\n\n    # Reconnect TimeOffset2 to input 5 of interpolated_switch if selected\n    if method_index == 5 and interpolated_switch and time_offset:\n        interpolated_switch.setInput(5, time_offset)\n    \n        \n\ndef select_hero_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('hero_interpolation_swtich', \{'which': method_index\})\n    gizmo\['vgblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['vgkronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['vgoflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['vgabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['vgtwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['vgboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['vgsapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime3', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorHero', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow2', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime2', \{'disable': interpolation_method != 'S_Retime'\})\n    \n    interpolated_switch = nuke.toNode('hero_interpolation_swtich')\n    time_offset = get_node('TimeOffset4')\n    \n    if interpolated_switch and time_offset:\n        # Disconnect TimeOffset2 from interpolated_switch\n        for i in range(interpolated_switch.inputs()):\n            if interpolated_switch.input(i) == time_offset:\n                interpolated_switch.setInput(i, None)\n                break\n\n    # Reconnect TimeOffset2 to input 5 of interpolated_switch if selected\n    if method_index == 5 and interpolated_switch and time_offset:\n        interpolated_switch.setInput(5, time_offset)\n\ndef select_hero_vector_generator(vector_generator):\n    method_index = \{'VectorGenerator': 0, 'SmartVectors': 1, 'ABME': 2, 'RAFT': 3, 'NNFlowVector': 4\}.get(vector_generator, 0)\n    set_knob_value('vector_switch', \{'which': method_index\})\n    gizmo\['vectorgenerator'].setVisible(vector_generator == 'VectorGenerator')\n    gizmo\['smartvector'].setVisible(vector_generator == 'SmartVectors')\n    gizmo\['abme'].setVisible(vector_generator == 'ABME')\n    gizmo\['raft'].setVisible(vector_generator == 'RAFT')\n    gizmo\['nnflowvector'].setVisible(vector_generator == 'NNFlowVector')\n    set_knob_value('ABME_SV1', \{'disable': vector_generator != 'ABME'\})\n    set_knob_value('RAFT1', \{'disable': vector_generator != 'RAFT'\})\n    set_knob_value('NNFlowVector1', \{'disable': vector_generator != 'NNFlowVector'\})\n\ndef set_uv_channels(vector_post_processor):\n    method_index = \{'forward': 0, 'backward': 1, 'average_motion': 2, 'OFlow': 3, 'Kronos': 4, 'Twixtor': 5\}.get(vector_post_processor, 0)\n    set_knob_value('SwitchMotionType', \{'which': method_index\})\n    gizmo\['vpost_oflow'].setVisible(vector_post_processor == 'OFlow')\n    gizmo\['vpost_kronos'].setVisible(vector_post_processor == 'Kronos')\n    gizmo\['vpost_twixtor'].setVisible(vector_post_processor == 'Twixtor')\n\ndef set_distortion_method(distortion_method):\n    method_index = 1 if distortion_method == 'IDistort' else 0\n    set_knob_value('SwitchBackward', \{'which': method_index\})\n    set_knob_value('SwitchForward', \{'which': method_index\})\n\ndef label_setter():\n    output_type = gizmo\['output_type'].value()\n    if output_type == 'hero plate':\n        label = 'HERO'\n    else:\n        parent_method = gizmo\['parent_method'].value()\n        if parent_method == 'interpolate':\n            label = gizmo\['matte_interpolation'].value()\n        else:\n            label = f\"\{gizmo\['hero_interpolation'].value()\}\\n\{gizmo\['vector_generator'].value()\}\\n\{gizmo\['distortion_method'].value()\}\\n\{gizmo\['vector_post'].value()\}\"\n    gizmo\['label'].setValue(label)\n    \ndef create_shuffle():\n   \n    # Get the root node\n    root = nuke.root()\n    \n    # Deselect all nodes to ensure the new node is correctly connected to the gizmo\n    for node in nuke.allNodes():\n        node\['selected'].setValue(False)\n    \n    # Create a new Shuffle2 node in the root context\n    with root:\n        shuffle_node = nuke.createNode('Shuffle2')\n    \n    # Set the properties to shuffle the 'matte' layer into the RGB channels\n    shuffle_node\['in1'].setValue('matte')\n    shuffle_node\['postage_stamp'].setValue(True)  # Enable the postage stamp for easier identification\n\n    # Set the RGB channels to be mapped from 'matte'\n    shuffle_node\['red'].setValue('matte.red')\n    shuffle_node\['green'].setValue('matte.green')\n    shuffle_node\['blue'].setValue('matte.blue')\n    shuffle_node\['alpha'].setValue('matte.alpha')  # Optionally, map the alpha channel as well\n\n    # Set the label for easier identification in the node graph\n    shuffle_node\['label'].setValue('Matte to RGB')\n    \n    # Position the node below the gizmo for better visibility\n    shuffle_node.setXYpos(gizmo.xpos(), gizmo.ypos() + 100)\n    \n    # Connect the shuffle node to the gizmo's output\n    shuffle_node.setInput(0, gizmo)\n\n\ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisible(overlay)\n    gizmo\['font_scale'].setVisible(overlay)\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['disable'].setValue(not overlay)\n\ndef font_selector():\n    font_family, font_style = gizmo.knob('font').getValue()\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        try:\n            node\['font'].setValue(font_family, font_style)\n        except:\n            pass\n\n\ndef set_font_scale(scale):\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['global_font_scale'].setValue(scale)\n\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\nk = nuke.thisKnob()  # the knob that activated knobChanged\nframe_range_changing_knobs = \['inputChange', 'add_frame', 'output_type', 'refresh']\n\n# Turns on knobs when testing\ngizmo\['print_all_knobs'].setVisible(testing)\n\n# Define a mapping of knob names to functions\nknob_function_map = \{\n    'text_overlays': lambda: toggle_text_overlays(k.value()),\n    'font': lambda: font_selector(),\n    'font_scale': lambda: set_font_scale(k.value()),\n    'output_type': lambda: (output_type(k.value()), label_setter()),\n    'parent_method': lambda: (select_parent_method(k.value()), label_setter()),\n    'create_shuffle': lambda: (create_shuffle()),\n    'matte_interpolation': lambda: (select_matte_interpolation_method(k.value()), label_setter()),\n    'hero_interpolation': lambda: (select_hero_interpolation_method(k.value()), label_setter()),\n    'vector_generator': lambda: (select_hero_vector_generator(k.value()), label_setter()),\n    'distortion_method': lambda: (set_distortion_method(k.value()), label_setter()),\n    'vector_post': lambda: (set_uv_channels(k.value()), label_setter()),\n    'difference_viewer': lambda: set_knob_value('diff_switch', \{'which': int(k.value())\})\n\}\n\n# Only take action if the particular knob was changed\nif k.name() in frame_range_changing_knobs:\n    frame_range = get_frame_range()\n    propogate_frame_range(frame_range)\nif k.name() in knob_function_map:\n    knob_function_map\[k.name()]()\n"
+ tile_color 0x201ff
+ label HERO
+ xpos 599
+ ypos -421
  addUserKnob {20 User}
- addUserKnob {26 header l "" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameExtractor.png' width='50'></span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>Extractor</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
+ addUserKnob {26 header l "" t "This gizmo processes clips shot on a volume using the ghost frame technique, where every alternate frame is a green or blue frame background. \n\nIt extracts the HERO frames by simply removing all the MATTE frames. \n\nIt extracts the MATTE frames by either interpolating them from two adjacent MATTE frames, <i>or</i> it generates motion vectors from the HERO frames and distorts the adjacent MATTE frames to match the HERO frame and then blends those MATTE frames together. \n\nCLICK THIS LOGO FOR HELP" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameExtractor.png' width='50'>   </span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>Extractor</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
  addUserKnob {26 available_plugins l "<b>available plugins" t "<div class=\"tooltip-content\"><p>Upon creation of a new GhostFrameExtractor, the 'onCreate' script scans installed plugins to determine which are available. Only detected plugins will appear in the dropdown menus.</p><p><em>Note: If you install new plugins after creating the node, delete and recreate the node to rescan for available plugins.</em></p></div>\n"}
  addUserKnob {6 forward +INVISIBLE +STARTLINE}
  forward true
@@ -527,13 +529,13 @@ Group {
  addUserKnob {26 ""}
  addUserKnob {22 print_all_knobs l "print all knobs" +HIDDEN T "for i in nuke.thisNode().knobs():\n    print (i)" +STARTLINE}
  addUserKnob {6 add_frame l "<font color=#FFA100>add matte frame to beginning of clip</font>" t "<div class=\"tooltip-content\"><p>Enable this option if your footage begins with a hero frame. This ensures the clip starts with a matte frame by duplicating the first matte frame and placing it at the beginning.</p><p><em>Note: The gizmo will automatically add a matte frame at the end if required.</em></p></div>\n" +STARTLINE}
+ add_frame true
  addUserKnob {22 refresh l "refresh frame range" t "<div class=\"tooltip-content\"><p>Click this button to recalculate all frame ranges.</p><p><em>Note: The gizmo auto-updates frame ranges if the input changes. However, if upstream changes occur without affecting the gizmo's input, manual refresh is required.</em></p></div>\n\n" -STARTLINE}
  addUserKnob {4 output_type l "<b><font color=#FFA100>view</font>" t "<div class=\"tooltip-content\"><p>Use this selector to toggle between viewing hero and matte frames. Perform your work while viewing matte frames, then switch back to hero frames to finalize.</p><p><em>Note: Use the shuffle button at the bottom to shuffle the matte frames out.</em></p></div>\n" M {"hero plate" "matte plate" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""}}
- output_type "matte plate"
  addUserKnob {26 ""}
- addUserKnob {4 parent_method l "<b><font color=#FFA100>matte generation method</font>" t "<div class=\"tooltip-content\"><ul><li><strong>Interpolate:</strong> Generates a frame between two matte frames using your chosen optical flow method. Estimates the hero frame content based solely on matte frame information.</li><li><strong>Vector Extract:</strong> Interpolates frames from hero frames to match existing matte frames using optical flow. Uses motion vectors to distort matte frames, preserving hero frame details.</li></ul></div>\n" M {interpolate "vector extract"}}
+ addUserKnob {4 parent_method l "<b><font color=#FFA100>matte generation method</font>" t "<div class=\"tooltip-content\"><ul><li><strong>Interpolate:</strong> Generates a frame between two matte frames using your chosen optical flow method. Estimates the hero frame content based solely on matte frame information.</li></br><li><strong>Vector Extract:</strong> Interpolates frames from hero frames to match existing matte frames using optical flow. Then uses motion vectors generated from the hero frames to distort the adjacent matte frames, preserving hero frame details.</li></ul></div>\n" M {interpolate "vector extract"}}
  addUserKnob {20 extract_group l ━━━━━━━━━━━━━━━━━━━━━━━━━ +HIDDEN n 1}
- addUserKnob {4 hero_interpolation l "<font color=#FFA100>hero interpolation method</font>" t "<div class=\"tooltip-content\"><p>Select the interpolation method for generating new intermediate HERO frames. Motion vectors from this clip will be used to align matte frames with the hero clip.</p><ul><li><strong>Blend:</strong> No optical flow blending</li><li><strong>Kronos:</strong> Uses Kronos optical flow</li><li><strong>OFlow:</strong> Uses OFlow optical flow</li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation (slow)</li><li><strong>Twixtor:</strong> RE:Vision's DNN motion estimation (v8)</li><li><strong>BCC3 Optical Flow:</strong> Boris's Continuum optical flow</li><li><strong>S_Retime:</strong> Boris's Sapphire Retime</li></ul><p><em>Note: Missing options indicate unavailable plugins.</em></p></div>\n" M {Blend Kronos OFlow ABME Twixtor BCC3Optical_Flow S_Retime}}
+ addUserKnob {4 hero_interpolation l "<font color=#FFA100>hero interpolation method</font>" t "<div class=\"tooltip-content\"><p>Select the interpolation method for generating new intermediate HERO frames. Motion vectors from this clip will be used to distort matte frames.</p><ul><li><strong>Blend:</strong> No optical flow blending.</li><li><strong>Kronos:</strong> Kronos optical flow. <i>Best fast option. Available in NukeX</i></li><li><strong>OFlow:</strong> OFlow optical flow. <i>Fast, free, and available in all Nuke versions</i></li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation. <i>Good but very slow</i></li><li><strong>Twixtor:</strong> RE:Vision's DNN motion estimation (v8). <i>Best option</i></li><li><strong>BCC3 Optical Flow:</strong> Boris's Continuum optical flow. <i>Avoid</i></li><li><strong>S_Retime:</strong> Boris's Sapphire Retime. <i>A little better than Kronos</i></li></ul><p><em>Note: Missing options indicate unavailable plugins. If you install new plugins you'll need to recreate this node to have it serch for available plugins again.</em></p><p><em>Note: You can source both ABME and RAFT from the Cattery. Nvidia GPUs make these somewhat viable options.</em></div>" M {Blend Kronos OFlow ABME Twixtor BCC3Optical_Flow S_Retime}}
  hero_interpolation Kronos
  addUserKnob {20 vgboris l "Boris Continuum Optical Flow controls" +HIDDEN n 1}
  vgboris 0
@@ -636,7 +638,7 @@ Group {
  addUserKnob {41 flow_view_scale_1 l "Flow View Scale" T S_Retime2.flow_view_scale}
  addUserKnob {20 "" n -1}
  addUserKnob {20 endGroup_21 l endGroup n -1}
- addUserKnob {4 vector_generator l "<font color=#FFA100>vector generator</font>" t "<div class=\"tooltip-content\"><p>Select a method for extracting vectors from the Hero plate to distort matte plates. If both backward and forward vectors are provided, they will be used on adjacent frames and averaged.</p><ul><li><strong>VectorGenerator:</strong> Nuke's standard vector generator</li><li><strong>SmartVectors:</strong> Creates additional vector fields for time-based distortion (not recommended)</li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation (slow)</li><li><strong>RAFT:</strong> Recurrent All-pairs Field Transforms (moderately slow)</li><li><strong>NNFlowVector:</strong> Pixelmania's motion vector plugin</li></ul></div>\n" M {VectorGenerator SmartVectors ABME RAFT NNFlowVector}}
+ addUserKnob {4 vector_generator l "<font color=#FFA100>vector generator</font>" t "<div class=\"tooltip-content\"><p>Select a method for extracting vectors from the HERO plate to distort MATTE plates. If both backward and forward vectors are provided, they will be used on adjacent frames and then joined in during the vector post process step.</p><ul><li><strong>VectorGenerator:</strong> Nuke's standard vector generator. <i>Very Fast</i></li><li><strong>SmartVectors:</strong> Provides the same output as VectorGenerator but creates additional vector fields for time-based distortion. <i>Not recommended</i></li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation. <i>Good but slow</i></li><li><strong>RAFT:</strong> Recurrent All-pairs Field Transforms. <i>Moderately slow and in most cases is worse than VectorGenerator</li><li><strong>NNFlowVector:</strong> Pixelmania's motion vector generator. <i>Doesn't seem to work correctly</i></li></ul></div><p><em>Note: You can source both ABME and RAFT from the Cattery. Nvidia GPUs make these somewhat viable options.</em></div>\n" M {VectorGenerator SmartVectors ABME RAFT NNFlowVector}}
  addUserKnob {20 vectorgenerator l "vector generator controls" n 1}
  vectorgenerator 0
  addUserKnob {41 motionEstimation l Motion T VectorGenerator1.motionEstimation}
@@ -690,7 +692,7 @@ Group {
  addUserKnob {41 padding T NNFlowVector1.padding}
  addUserKnob {20 endGroup_17 l endGroup n -1}
  addUserKnob {4 distortion_method l "<font color=#FFA100>distortion method</font>" t "<div class=\"tooltip-content\"><p>Choose between IDistort and STMap for distorting matte frames using vectors.</p><ul><li><strong>IDistort:</strong> Recommended for better results.</li><li><strong>STMap:</strong> Included for completeness, not recommended.</li></ul></div>\n" M {IDistort STMap "" "" "" ""}}
- addUserKnob {4 vector_post l "<font color=#FFA100>vector post process</font>" t "<div class=\"tooltip-content\"><p>Select a process to combine the two matte frames generated with vectors. Ideally, these frames should be identical, but toggling can show differences.</p><ul><li><strong>forward:</strong> Use motion vectors from the next frame to the current frame</li><li><strong>backward:</strong> Use motion vectors from the previous frame to the current frame</li><li><strong>average_motion:</strong> Average forward and backward motion vectors</li><li><strong>OFlow:</strong> Use OFlow to interpolate a new frame</li><li><strong>Kronos:</strong> Use Kronos to interpolate a new frame</li><li><strong>Twixtor:</strong> Use Twixtor to interpolate a new frame</li></ul></div>\n" M {forward backward average_motion OFlow Kronos Twixtor}}
+ addUserKnob {4 vector_post l "<font color=#FFA100>vector post process</font>" t "<div class=\"tooltip-content\"><p>Select a process to combine the two matte frames generated with vectors. Ideally, these frames should be identical, but toggling forward and backward distorted frames will show the difference.</p><ul><li><strong>forward:</strong> Use motion vectors from the next frame to the current frame</li><li><strong>backward:</strong> Use motion vectors from the previous frame to the current frame</li><li><strong>average_motion:</strong> Average forward and backward motion vectors</li><li><strong>OFlow:</strong> Use OFlow to interpolate a new frame</li><li><strong>Kronos:</strong> Use Kronos to interpolate a new frame</li><li><strong>Twixtor:</strong> Use Twixtor to interpolate a new frame</li></ul></div>\n" M {forward backward average_motion OFlow Kronos Twixtor}}
  vector_post Kronos
  addUserKnob {20 vpost_kronos l "Kronos controls" n 1}
  vpost_kronos 0
@@ -710,7 +712,7 @@ Group {
  addUserKnob {20 endGroup_22 l endGroup n -1}
  addUserKnob {20 endGroup_6 l endGroup n -1}
  addUserKnob {20 interpolation_group l ━━━━━━━━━━━━━━━━━━━━━━━━━ n 1}
- addUserKnob {4 matte_interpolation l "<font color=#FFA100>matte interpolation method</font>" t "<div class=\"tooltip-content\"><p>Select the interpolation method for generating new intermediate matte frames between each pair of HERO frames. Motion vectors from this clip will be used to align the matte frames with the hero clip.</p><ul><li><strong>Blend:</strong> No optical flow blending</li><li><strong>Kronos:</strong> Uses Kronos optical flow</li><li><strong>OFlow:</strong> Uses OFlow optical flow</li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation (slow)</li><li><strong>Twixtor:</strong> RE:Vision's DNN motion estimation (v8)</li><li><strong>BCC3 Optical Flow:</strong> Boris's Continuum optical flow</li><li><strong>S_Retime:</strong> Boris's Sapphire Retime</li></ul><p><em>Note: Missing options indicate unavailable plugins.</em></p></div>\n" M {Blend Kronos OFlow ABME Twixtor BCC3Optical_Flow S_Retime}}
+ addUserKnob {4 matte_interpolation l "<font color=#FFA100>matte interpolation method</font>" t "<div class=\"tooltip-content\"><p>Select the interpolation method for generating new intermediate matte frames between each pair of MATTE frames.</p><ul><li><strong>Blend:</strong> No optical flow blending.</li><li><strong>Kronos:</strong> Kronos optical flow. <i>Best fast option. Available in NukeX</i></li><li><strong>OFlow:</strong> OFlow optical flow. <i>Fast, free, and available in all Nuke versions</i></li><li><strong>ABME:</strong> Asymmetric Bilateral Motion Estimation. <i>Good but very slow</i></li><li><strong>Twixtor:</strong> RE:Vision's DNN motion estimation (v8). <i>Best option</i></li><li><strong>BCC3 Optical Flow:</strong> Boris's Continuum optical flow. <i>Avoid</i></li><li><strong>S_Retime:</strong> Boris's Sapphire Retime. <i>A little better than Kronos</i></li></ul><p><em>Note: Missing options indicate unavailable plugins. If you install new plugins you'll need to recreate this node to have it serch for available plugins again.</em></p><p><em>Note: You can source both ABME and RAFT from the Cattery. Nvidia GPUs make these somewhat viable options.</em></p></div>" M {Blend Kronos OFlow ABME Twixtor BCC3Optical_Flow S_Retime}}
  matte_interpolation Kronos
  addUserKnob {20 giblend l "blend controls" +HIDDEN n 1}
  giblend 0
@@ -815,17 +817,17 @@ Group {
  addUserKnob {20 endGroup_20 l endGroup n -1}
  addUserKnob {20 endGroup_5 l endGroup n -1}
  addUserKnob {26 ""}
- addUserKnob {6 difference_viewer l "<font color=#FFA100>view difference</font>" t "<div class=\"tooltip-content\"><p>Compare the quality of the matte by differencing the hero plate output and the matte plate output.</p></div>\n" +STARTLINE}
+ addUserKnob {6 difference_viewer l "<font color=#FFA100>view difference</font>" t "<div class=\"tooltip-content\"><p>Compare the quality of the matte by differencing the hero plate output and the matte plate output.</p></div>/div><p><em>Note: A perfect matte will appear black. Really we are only concerned about the edges.</em></div>\n" +STARTLINE}
  difference_viewer true
- addUserKnob {6 text_overlays l "<font color=#FFA100>text overlays</font>" t "<div class=\"tooltip-content\"><p>Toggle text overlays on the footage. Enable to view overlays, disable to hide them.</p></div>\n" +STARTLINE}
+ addUserKnob {6 text_overlays l "<font color=#FFA100>text overlays</font>" t "<div class=\"tooltip-content\"><p>Generate text overlays on the footage.</p></div>\n" +STARTLINE}
  text_overlays true
  addUserKnob {84 font l "" -STARTLINE}
  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
  addUserKnob {7 font_scale l "font scale" R 0 2}
  font_scale 0.5
- addUserKnob {22 create_shuffle l "create shuffle" t "<div class=\"tooltip-content\"><p>Click this button to create a shuffle node that maps the matte channel's RGB to the RGB channels.</p><p><em>Note: Perform your work while viewing 'matte plate', then switch to 'hero plate' and use the shuffled matte plate for keying.</em></p></div>\n" +STARTLINE}
+ addUserKnob {22 create_shuffle l "create shuffle" t "<div class=\"tooltip-content\"><p>Click this button to create a shuffle node that maps the 'matte' channel's RGB to the RGB channels.</p><p><em>Note: Perform your work while viewing 'matte plate', then switch to 'hero plate' and use the shuffled matte plate for keying.</em></p></div>\n" +STARTLINE}
  addUserKnob {26 ""}
- addUserKnob {26 website l "" +STARTLINE T "<font size=3 color =#444444>by        <a href='https://itaki.com' style='color:#666666;'>itaki</a></font>"}
+ addUserKnob {26 website l "" t "Created by Michael McReynolds at itaki post based in Atlanta, Georgia, USA" +STARTLINE T "<font size=3 color =#444444>by        <a href='https://itaki.com' style='color:#666666;'>itaki</a></font>"}
 }
  BackdropNode {
   inputs 0
@@ -1140,7 +1142,7 @@ Group {
  }
  FrameRange {
   first_frame 1
-  last_frame 185
+  last_frame 193
   time ""
   name InputFrameRange
   label "\[value first_frame]-\[value last_frame]"
@@ -1154,8 +1156,8 @@ Group {
   xpos -1618
   ypos -4290
  }
-set N2e7a8e00 [stack 0]
-push $N2e7a8e00
+set N80b74400 [stack 0]
+push $N80b74400
  Dot {
   name Dot3
   note_font_size 24
@@ -1180,16 +1182,17 @@ push $N2e7a8e00
  }
  AppendClip {
   inputs 2
-  lastFrame 185
+  lastFrame 194
   meta_from_first false
   time ""
   name AppendMatteFrame
   xpos -1284
   ypos -3910
  }
-push $N2e7a8e00
+push $N80b74400
  Switch {
   inputs 2
+  which 1
   name add_frame_switch
   label "\[value which]"
   xpos -1652
@@ -1202,7 +1205,7 @@ push $N2e7a8e00
   xpos -1618
   ypos -3739
  }
-set N2e5da200 [stack 0]
+set N80b87e00 [stack 0]
  Dot {
   name Dot6
   note_font_size 24
@@ -1211,24 +1214,25 @@ set N2e5da200 [stack 0]
   ypos -3739
  }
  FrameHold {
-  firstFrame 184
+  firstFrame 193
   name EndFrameHold
   xpos -1284
   ypos -3669
  }
-push $N2e5da200
+push $N80b87e00
  AppendClip {
   inputs 2
-  lastFrame 185
+  lastFrame 195
   meta_from_first false
   time ""
   name AppendEndFrame
   xpos -1284
   ypos -3527
  }
-push $N2e5da200
+push $N80b87e00
  Switch {
   inputs 2
+  which 1
   name add_end_frame_switch
   label "\[value which]"
   xpos -1652
@@ -1236,7 +1240,7 @@ push $N2e5da200
  }
  FrameRange {
   first_frame 1
-  last_frame 185
+  last_frame 195
   time ""
   name OutputFrameRange
   label "\[value first_frame]-\[value last_frame]"
@@ -1257,7 +1261,7 @@ push $N2e5da200
   xpos -1618
   ypos -2708
  }
-set N2e5b2000 [stack 0]
+set N80c49a00 [stack 0]
  Dot {
   name Dot20
   note_font_size 24
@@ -1267,10 +1271,10 @@ set N2e5b2000 [stack 0]
  }
  Retime {
   input.first_lock true
-  input.last 185
+  input.last 195
   input.last_lock true
   output.first_lock true
-  output.last 369
+  output.last 389
   speed 2
   before continue
   after continue
@@ -1288,7 +1292,7 @@ set N2e5b2000 [stack 0]
   xpos -340
   ypos -1788
  }
-set N2e58fa00 [stack 0]
+set N80c86000 [stack 0]
  Dot {
   name Dot54
   note_font_size 24
@@ -1296,7 +1300,7 @@ set N2e58fa00 [stack 0]
   xpos 373
   ypos -1788
  }
-set N2e586600 [stack 0]
+set N80c59200 [stack 0]
  Dot {
   name Dot55
   note_font_size 24
@@ -1304,7 +1308,7 @@ set N2e586600 [stack 0]
   xpos 1037
   ypos -1788
  }
-set N2e57d200 [stack 0]
+set N80c69800 [stack 0]
  Dot {
   name Dot2
   note_font_size 24
@@ -1312,7 +1316,7 @@ set N2e57d200 [stack 0]
   xpos 1652
   ypos -1788
  }
-set N2e571400 [stack 0]
+set N80c6ae00 [stack 0]
  Dot {
   name Dot9
   note_font_size 24
@@ -1320,7 +1324,7 @@ set N2e571400 [stack 0]
   xpos 2298
   ypos -1788
  }
-set N2e4f8a00 [stack 0]
+set N80c51800 [stack 0]
  Dot {
   name Dot36
   note_font_size 24
@@ -1328,7 +1332,6 @@ set N2e4f8a00 [stack 0]
   xpos 2939
   ypos -1788
  }
-set N2e535800 [stack 0]
  Dot {
   name Dot37
   note_font_size 24
@@ -1336,7 +1339,7 @@ set N2e535800 [stack 0]
   xpos 3518
   ypos -1788
  }
-set N2e555200 [stack 0]
+set N80c8fc00 [stack 0]
  OFXcom.genarts.sapphire.time.s_retime_v1 {
   Mode "Retime Speed"
   speed 0.5
@@ -1380,50 +1383,14 @@ set N2e555200 [stack 0]
   xpos 3484
   ypos -754
  }
-push $N2e535800
- OFXcom.borisfx.bcc3optical_flow_v9 {
-  ParamID_900 AAAAAQADvMj+xwAAAAAAAAABAAAAAQAAAAD/////AAAAEQAAAAAAAAAFAAAAEQAAAAAAAAAFAAAAAP///////////////wYxNS4wLjQGMTUuMC40AAAAAAAAAAADAAAAAwAAAAD/////AAAAAAAAAAC8yP7HvMj+x7zI/se8yP7HvMj+x7zI/se8yP7HvMj+x7zI/se6XroRAAAAAQTsgxLeyvutAAAAALi4uLgAAAAEAAAAALi4uLi8yP7H
-  bcc_force_rerender_param 0
-  preset halfSpeed.bsp
-  input_layer Source
-  velocity 50
-  input_fields Progressive
-  input_frame_rate {{root.fps x14 29.97000122 x27 29.97000122}}
-  offset_keyframe false
-  start_offset_frame 1
-  optical_flow_resolution Medium
-  blending "Bi-Directional Mix"
-  optical_flow_mix 100
-  "Motion Estimation" 1
-  use_reverse_estimation_motion_estimation false
-  min_edge_contrast_motion_estimation 10
-  enable_low_velocity_correction_motion_estimation false
-  low_velocity_correction_motion_estimation 0
-  velocity_limit_motion_estimation 100
-  composite_motion_vectors Off
-  "Motion Vectors" 1
-  display_density_motion_vectors 10
-  drawing_scale_motion_vectors 100
-  name BCCOpticalFlow1
-  xpos 2905
-  ypos -774
-  disable true
- }
- TimeOffset {
-  time_offset -1
-  time ""
-  name TimeOffset2
-  label "\[value time_offset]"
-  xpos 2905
-  ypos -750
- }
-push $N2e4f8a00
+push 0
+push $N80c51800
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
   TimeRetimeMethod "Frame Number"
   Speed 100
-  Frame {{curve x1 1 x369 185}}
+  Frame {{curve x1 1 x389 195}}
   TrackingQuality Twixtor7_MAX
   setKnobFlags {TrackingQuality +HIDDEN}
   TrackingQualityV2 "DNN - model 1"
@@ -1440,37 +1407,37 @@ push $N2e4f8a00
   MarkSegments "Cut A"
   MarkSegmentsSelector "Select Cut"
   StartFrame 1
-  LastFrame 185
+  LastFrame 195
   CustomData_DoNotEdit aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   name TwixtorPlate
   xpos 2259
   ypos -766
   disable true
  }
-push $N2e571400
+push $N80c6ae00
  ABME_Retime.gizmo {
   name ABME_Retime_interpolate
   xpos 1618
   ypos -772
   disable true
  }
-push $N2e57d200
+push $N80c69800
  OFlow2 {
-  input.last 185
+  input.last 195
   timing2 Frame
   timingOutputSpeed 2
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   Advanced 1
   name OFlowPlate
   xpos 1003
   ypos -766
  }
-push $N2e586600
+push $N80c59200
  Kronos {
-  input.last 185
+  input.last 195
   retimedChannels all
   timing2 Frame
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   motionEstimation Regularized
   resampleType Lanczos6
   Shutter 1
@@ -1479,13 +1446,13 @@ push $N2e586600
   xpos 339
   ypos -755
  }
-push $N2e58fa00
+push $N80c86000
  OFlow2 {
-  input.last 185
+  input.last 195
   interpolation Blend
   timing2 Frame
   timingOutputSpeed 1
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   name OFlowPlateBlend
   xpos -374
   ypos -743
@@ -1503,9 +1470,9 @@ push $N2e58fa00
   font_width_toolbar 100
   font_height_toolbar 100
   message "MATTE \[frame]\n\[set frame \[frame]\nif \{\$frame % 2 == 0\} \{\n    return \"Generated\"\n\} else \{\n    return \"Original\"\n\}]"
-  old_message {{77 65 84 84 69 32 50 10 71 101 110 101 114 97 116 101 100}
+  old_message {{77 65 84 84 69 32 49 54 56 10 71 101 110 101 114 97 116 101 100}
     }
-  old_expression_markers {{6 6 8 16}
+  old_expression_markers {{6 8 10 18}
     }
   box {0 0 {width} {height}}
   yjustify center
@@ -1529,10 +1496,10 @@ push $N2e58fa00
  Retime {
   input.first 2
   input.first_lock true
-  input.last 369
+  input.last 389
   input.last_lock true
   output.first_lock true
-  output.last 185
+  output.last 195
   speed 2
   before continue
   after continue
@@ -1573,7 +1540,7 @@ push $N2e58fa00
   yjustify bottom
   transforms {{0 2}
     }
-  font_size_values {{0 40 1 40 2 40 3 40 4 40 5 40 6 40 7 40 8 40 9 40 10 40 11 40 12 40 13 40 14 40 15 40 16 40 17 40 18 40 19 40 20 100 21 100 22 100 23 100 0 40 1 40 2 40 3 40 4 40 5 40 6 40 7 40 8 40 9 40 10 40 11 40 12 40 13 40 14 40 15 40 16 40 17 40 18 40 19 40 20 40 21 40 22 40 23 40}
+  font_size_values {{0 40 1 40 2 40 3 40 4 40 5 40 6 40 7 40 8 40 9 40 10 40 11 40 12 40 13 40 14 40 15 40 16 40 17 40 18 40 19 40 20 100 0 40 1 40 2 40 3 40 4 40 5 40 6 40 7 40 8 40 9 40 10 40 11 40 12 40 13 40 14 40 15 40 16 40 17 40 18 40 19 40 20 40}
     }
   cursor_position 20
   font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
@@ -1598,15 +1565,15 @@ push $N2e58fa00
   xpos 587
   ypos 506
  }
-set N8d439400 [stack 0]
-push $N2e5b2000
+set N80f37800 [stack 0]
+push $N80c49a00
  Retime {
   input.first 2
   input.first_lock true
-  input.last 185
+  input.last 195
   input.last_lock true
   output.first_lock true
-  output.last 92
+  output.last 97
   output.last_lock true
   speed 2
   before continue
@@ -1618,7 +1585,7 @@ push $N2e5b2000
   xpos -1652
   ypos -2427
  }
-set N8d44d000 [stack 0]
+set N80c4c000 [stack 0]
  Dot {
   name Dot18
   note_font_size 24
@@ -1633,7 +1600,7 @@ set N8d44d000 [stack 0]
   xpos 6588
   ypos -2060
  }
-set N8d3f0000 [stack 0]
+set N80c4a200 [stack 0]
  Dot {
   name Dot31
   note_font_size 24
@@ -1641,7 +1608,7 @@ set N8d3f0000 [stack 0]
   xpos 6840
   ypos -2060
  }
-set N8d3c6000 [stack 0]
+set N80c4a600 [stack 0]
  Dot {
   name Dot12
   note_font_size 24
@@ -1649,7 +1616,7 @@ set N8d3c6000 [stack 0]
   xpos 7109
   ypos -2061
  }
-set N8d424200 [stack 0]
+set N80c4aa00 [stack 0]
  Dot {
   name Dot10
   note_font_size 24
@@ -1657,7 +1624,7 @@ set N8d424200 [stack 0]
   xpos 7338
   ypos -2061
  }
-set N8d3e3200 [stack 0]
+set N80c4c400 [stack 0]
  Dot {
   name Dot11
   note_font_size 24
@@ -1665,15 +1632,15 @@ set N8d3e3200 [stack 0]
   xpos 7557
   ypos -2061
  }
-set N8d3c9a00 [stack 0]
+set N80c4c800 [stack 0]
  Dot {
   name Dot38
   note_font_size 24
   note_font_color 0xff
+  selected true
   xpos 7790
   ypos -2060
  }
-set N8d3ce000 [stack 0]
  Dot {
   name Dot40
   note_font_size 24
@@ -1724,50 +1691,14 @@ set N8d3ce000 [stack 0]
   xpos 7991
   ypos -1965
  }
-push $N8d3ce000
- OFXcom.borisfx.bcc3optical_flow_v9 {
-  ParamID_900 AAAAAQADvMj+xwAAAAAAAAABAAAAAQAAAAD/////AAAAEQAAAAAAAAAFAAAAEQAAAAAAAAAFAAAAAP///////////////wYxNS4wLjQGMTUuMC40AAAAAAAAAAADAAAAAwAAAAD/////AAAAAAAAAAC8yP7HvMj+x7zI/se8yP7HvMj+x7zI/se8yP7HvMj+x7zI/se6XroRAAAAAQBNir/eyvutAAAAALi4uLgAAAAEAAAAALi4uLi8yP7H
-  bcc_force_rerender_param 0
-  preset halfSpeed.bsp
-  input_layer Source
-  velocity 1018.257385
-  input_fields Progressive
-  input_frame_rate {{root.fps x1 29.97000122}}
-  offset_keyframe false
-  start_offset_frame 0
-  optical_flow_resolution Best
-  blending "Bi-Directional Mix"
-  optical_flow_mix 100
-  "Motion Estimation" 0
-  use_reverse_estimation_motion_estimation false
-  min_edge_contrast_motion_estimation 10
-  enable_low_velocity_correction_motion_estimation false
-  low_velocity_correction_motion_estimation 0
-  velocity_limit_motion_estimation 100
-  composite_motion_vectors Off
-  "Motion Vectors" 0
-  display_density_motion_vectors 10
-  drawing_scale_motion_vectors 100
-  name BCCOpticalFlow2
-  xpos 7756
-  ypos -2011
-  disable true
- }
- TimeOffset {
-  time_offset -1
-  time ""
-  name TimeOffset4
-  label "\[value time_offset]"
-  xpos 7756
-  ypos -1966
- }
-push $N8d3c9a00
+push 0
+push $N80c4c800
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
   TimeRetimeMethod "Frame Number"
   Speed 50
-  Frame {{curve x1 1 x369 185}}
+  Frame {{curve x1 1 x389 195}}
   TrackingQuality Twixtor7_MAX
   setKnobFlags {TrackingQuality +HIDDEN}
   TrackingQualityV2 "DNN - model 1"
@@ -1784,25 +1715,25 @@ push $N8d3c9a00
   MarkSegments "Cut A"
   MarkSegmentsSelector "Select Cut"
   StartFrame 1
-  LastFrame 185
+  LastFrame 195
   CustomData_DoNotEdit aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   name TwixtorHero
   xpos 7523
   ypos -1962
   disable true
  }
-push $N8d3e3200
+push $N80c4c400
  ABME_Retime.gizmo {
   name ABME_Retime3
   xpos 7304
   ypos -1964
   disable true
  }
-push $N8d424200
+push $N80c4aa00
  OFlow2 {
-  input.last 184
+  input.last 194
   timing2 Frame
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   vectorDetailLocal 0.15
   smoothnessLocal 0.325
   resampleType Lanczos6
@@ -1812,12 +1743,12 @@ push $N8d424200
   xpos 7075
   ypos -1952
  }
-push $N8d3c6000
+push $N80c4a600
  Kronos {
-  input.last 184
+  input.last 194
   retimedChannels all
   timing2 Frame
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   motionEstimation Regularized
   vectorDetailReg 1
   strengthReg 1
@@ -1825,13 +1756,13 @@ push $N8d3c6000
   xpos 6806
   ypos -1957
  }
-push $N8d3f0000
+push $N80c4a200
  OFlow2 {
-  input.last 184
+  input.last 194
   interpolation Blend
   timing2 Frame
   timingOutputSpeed 1
-  timingFrame2 {{curve x1 1 x369 185}}
+  timingFrame2 {{curve x1 1 x389 195}}
   name OFlowBlend
   xpos 6554
   ypos -1945
@@ -1851,7 +1782,7 @@ push $N8d3f0000
   xpos 7109
   ypos -1702
  }
-set N8d28fa00 [stack 0]
+set N80e0a600 [stack 0]
  Dot {
   name Dot22
   note_font_size 24
@@ -1866,7 +1797,7 @@ set N8d28fa00 [stack 0]
   ypos -1458
   disable true
  }
-push $N8d28fa00
+push $N80e0a600
  Dot {
   name Dot15
   note_font_size 24
@@ -1886,7 +1817,7 @@ push $N8d28fa00
   ypos -1382
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N8d28fa00
+push $N80e0a600
  Dot {
   name Dot21
   note_font_size 24
@@ -1906,7 +1837,7 @@ push $N8d28fa00
   ypos -1374
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N8d28fa00
+push $N80e0a600
  Dot {
   name Dot19
   note_font_size 24
@@ -1925,7 +1856,7 @@ push $N8d28fa00
   ypos -1375
   scale {{"proxy ? proxy_scale.0 : 1"} {"proxy ? proxy_scale.1 : 1"}}
  }
-push $N8d28fa00
+push $N80e0a600
  Dot {
   name Dot17
   note_font_size 24
@@ -1946,7 +1877,7 @@ push $N8d28fa00
   xpos 7023
   ypos -1222
  }
-set N8d67c200 [stack 0]
+set Nc20bc00 [stack 0]
  Dot {
   name Dot27
   note_font_size 24
@@ -1972,8 +1903,8 @@ set N8d67c200 [stack 0]
   xpos 5236
   ypos -964
  }
-set N8d67d000 [stack 0]
-push $N2e555200
+set Nc20c600 [stack 0]
+push $N80c8fc00
  Dot {
   name Dot25
   note_font_size 24
@@ -1982,14 +1913,14 @@ push $N2e555200
   ypos -1788
  }
  OFlow2 {
-  input.last 369
+  input.last 389
   interpolation Frame
-  timingFrame2 {{curve x1 1 x369 737}}
+  timingFrame2 {{curve x1 1 x389 777}}
   name DoublePlateFrames
   xpos 4692
   ypos -1731
  }
-set N8d67d800 [stack 0]
+set Nc20ce00 [stack 0]
  Dot {
   name Dot32
   note_font_size 24
@@ -1997,7 +1928,7 @@ set N8d67d800 [stack 0]
   xpos 4916
   ypos -1728
  }
-set N8d67dc00 [stack 0]
+set Nc20d200 [stack 0]
  Dot {
   name Dot29
   note_font_size 24
@@ -2019,7 +1950,7 @@ set N8d67dc00 [stack 0]
   xpos 5643
   ypos -866
  }
-set N8d67b000 [stack 0]
+set Nc206a00 [stack 0]
  Copy {
   inputs 2
   from0 forward.u
@@ -2042,7 +1973,7 @@ set N8d67b000 [stack 0]
   xpos 5643
   ypos -488
  }
-push $N8d67c200
+push $Nc20bc00
  Dot {
   name Dot34
   note_font_size 24
@@ -2050,7 +1981,7 @@ push $N8d67c200
   xpos 8261
   ypos -1214
  }
-set N8d50ac00 [stack 0]
+set Nc207a00 [stack 0]
  Shuffle2 {
   fromInput1 {{0} B}
   in1 backward
@@ -2076,7 +2007,7 @@ set N8d50ac00 [stack 0]
   xpos 8227
   ypos -951
  }
-push $N8d67b000
+push $Nc206a00
  STMap {
   inputs 2
   uv rgb
@@ -2106,9 +2037,9 @@ push $N8d67b000
   xpos 7449
   ypos -87
  }
-set N8d681800 [stack 0]
-push $N8d67d000
-push $N8d67dc00
+set Nc20d600 [stack 0]
+push $Nc20c600
+push $Nc20d200
  TimeOffset {
   time_offset 1
   time ""
@@ -2123,7 +2054,7 @@ push $N8d67dc00
   xpos 4882
   ypos -836
  }
-set N8d682200 [stack 0]
+set Nc20e000 [stack 0]
  Copy {
   inputs 2
   from0 forward.u
@@ -2146,7 +2077,7 @@ set N8d682200 [stack 0]
   xpos 4882
   ypos -356
  }
-push $N8d50ac00
+push $Nc207a00
  Dot {
   name Dot33
   note_font_size 24
@@ -2179,7 +2110,7 @@ push $N8d50ac00
   xpos 8604
   ypos -957
  }
-push $N8d682200
+push $Nc20e000
  STMap {
   inputs 2
   uv rgb
@@ -2209,7 +2140,7 @@ push $N8d682200
   xpos 6688
   ypos -87
  }
-set N8d685e00 [stack 0]
+set Nc212800 [stack 0]
  Switch {
   inputs 2
   which {{frame%2 x43 1}}
@@ -2218,7 +2149,7 @@ set N8d685e00 [stack 0]
   xpos 6994
   ypos -95
  }
-set N8d686200 [stack 0]
+set Nc212c00 [stack 0]
  OFXcom.revisionfx.twixtor_v5 {
   Display "Twixtored Output"
   UseGPU ON
@@ -2247,7 +2178,7 @@ set N8d686200 [stack 0]
   xpos 7120
   ypos 360
  }
-push $N8d686200
+push $Nc212c00
  Kronos {
   input.first 0
   input.last 743
@@ -2259,7 +2190,7 @@ push $N8d686200
   xpos 6931
   ypos 360
  }
-push $N8d686200
+push $Nc212c00
  OFlow2 {
   input.last 2
   timing2 Frame
@@ -2269,8 +2200,8 @@ push $N8d686200
   xpos 6798
   ypos 373
  }
-push $N8d685e00
-push $N8d681800
+push $Nc212800
+push $Nc20d600
  Merge2 {
   inputs 2
   operation average
@@ -2280,8 +2211,8 @@ push $N8d681800
   xpos 6654
   ypos 369
  }
-push $N8d685e00
-push $N8d681800
+push $Nc212800
+push $Nc20d600
  Switch {
   inputs 6
   which 4
@@ -2290,7 +2221,7 @@ push $N8d681800
   xpos 6798
   ypos 542
  }
-push $N8d67d800
+push $Nc20ce00
  Dot {
   name Dot28
   note_font_size 24
@@ -2374,9 +2305,9 @@ push $N8d67d800
   font_width_toolbar 100
   font_height_toolbar 100
   message "MATTE \[frame]\n\[set frame \[frame]\nif \{\$frame % 2 == 0\} \{\n    return \"Original\"\n\} else \{\n    return \"Generated\"\n\}]"
-  old_message {{77 65 84 84 69 32 49 10 71 101 110 101 114 97 116 101 100}
+  old_message {{77 65 84 84 69 32 49 54 55 10 71 101 110 101 114 97 116 101 100}
     }
-  old_expression_markers {{6 6 8 16}
+  old_expression_markers {{6 8 10 18}
     }
   box {0 0 {width} {height}}
   yjustify center
@@ -2399,8 +2330,8 @@ push $N8d67d800
  }
  Retime {
   input.first_lock true
-  input.last 369
-  output.last 185
+  input.last 389
+  output.last 195
   speed 2
   before continue
   after continue
@@ -2435,7 +2366,7 @@ push $N8d67d800
   xpos 6832
   ypos 1201
  }
-set N8d69a800 [stack 0]
+set Nc227000 [stack 0]
  Merge2 {
   inputs 2
   operation average
@@ -2445,8 +2376,8 @@ set N8d69a800 [stack 0]
   xpos 6798
   ypos 1961
  }
-push $N8d69a800
-push $N8d439400
+push $Nc227000
+push $N80f37800
  Switch {
   inputs 3
   name parent_method_switch
@@ -2459,9 +2390,9 @@ push $N8d439400
   font_width_toolbar 100
   font_height_toolbar 100
   message "MATTE \[frame]"
-  old_message {{77 65 84 84 69 32 49}
+  old_message {{77 65 84 84 69 32 56 52}
     }
-  old_expression_markers {{6 6}
+  old_expression_markers {{6 7}
     }
   box {0 0 {width} {height}}
   transforms {{0 2}
@@ -2488,7 +2419,7 @@ push $N8d439400
   xpos -1276
   ypos 1975
  }
-set N8d69c400 [stack 0]
+set Nc228c00 [stack 0]
  Dot {
   name Dot44
   note_font_size 24
@@ -2496,24 +2427,23 @@ set N8d69c400 [stack 0]
   xpos -1276
   ypos 2694
  }
-set N8d6a0e00 [stack 0]
+set Nc22bc00 [stack 0]
  Dot {
   name Dot45
   note_font_size 24
   note_font_color 0xff
-  selected true
   xpos -1276
   ypos 3107
  }
-push $N8d44d000
+push $N80c4c000
  Text2 {
   font_size_toolbar 100
   font_width_toolbar 100
   font_height_toolbar 100
   message "HERO \[frame]"
-  old_message {{72 69 82 79 32 49}
+  old_message {{72 69 82 79 32 56 52}
     }
-  old_expression_markers {{5 5}
+  old_expression_markers {{5 6}
     }
   box {0 0 {width} {height}}
   xjustify right
@@ -2548,8 +2478,8 @@ push $N8d44d000
   xpos -1623
   ypos 1962
  }
-set N8d6a6200 [stack 0]
-push $N8d69c400
+set Nc231600 [stack 0]
+push $Nc228c00
  Merge2 {
   inputs 2
   operation difference
@@ -2562,10 +2492,11 @@ push $N8d69c400
   xpos -1506
   ypos 2340
  }
-push $N8d6a6200
-push $N8d6a0e00
+push $Nc231600
+push $Nc22bc00
  Switch {
   inputs 2
+  which 1
   name output_switch
   label "\[value which]"
   xpos -1657
@@ -2592,10 +2523,10 @@ add_layer {matte matte.red matte.green matte.blue}
   ypos 3075
   postage_stamp true
  }
-set N8d6a4c00 [stack 0]
+set Nc232a00 [stack 0]
  FrameRange {
   first_frame 1
-  last_frame 92
+  last_frame 97
   time ""
   name OutputFrameRange2
   label "\[value first_frame]-\[value last_frame]"
@@ -2677,7 +2608,7 @@ set N8d6a4c00 [stack 0]
   xpos 6904
   ypos -136
  }
-push $N8d6a4c00
+push $Nc232a00
  Viewer {
   frame_range 1-100
   monitorOutNDISenderName "NukeX - GhostFrameReleaseCandidate_v02 - Viewer1"
@@ -2687,17 +2618,16 @@ push $N8d6a4c00
   ypos -1916
  }
 end_group
-set N4368a000 [stack 0]
+set N80c32c00 [stack 0]
 Dot {
  name Dot1
  note_font "Gotham Bold Italic"
  note_font_size 24
  note_font_color 0xff
- selected true
- xpos 191
- ypos -4
+ xpos 577
+ ypos -258
 }
-push $N4368a000
+push $N80c32c00
 Shuffle2 {
  fromInput1 {{0} B}
  in1 matte
@@ -2706,23 +2636,22 @@ Shuffle2 {
  name Shuffle1
  label "\[value in1] - \[value out1]"
  note_font Gotham
- selected true
- xpos 295
- ypos -4
+ xpos 681
+ ypos -258
  postage_stamp true
 }
-push $N4368a000
+push $N80c32c00
 Viewer {
- frame 1
+ frame 84
  frame_range 1-100
  frame_range_lock true
- monitorOutNDISenderName "NukeX - GhostFrameReleaseCandidate_v05 - Viewer2"
+ monitorOutNDISenderName "NukeX - GhostFrameReleaseCandidate_v07 - Viewer2"
  monitorOutOutputTransform rec709
  name Viewer2
  tile_color 0x323232ff
  note_font Gotham
- xpos 1486
- ypos 552
+ xpos 599
+ ypos -158
  addUserKnob {20 viewerLockInputStates +INVISIBLE}
  addUserKnob {26 READ_ME -STARTLINE +INVISIBLE T "The following knobs are needed for the Viewer Lock\n    plugin to function. If you don't have Viewer Lock,\n    you can safely ignore or delete them.\n\n    If they're causing problems, let me know at\n    matt_roe@live.com.\n    "}
  addUserKnob {6 inputState0 +INVISIBLE +STARTLINE}
