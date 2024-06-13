@@ -1,6 +1,8 @@
 # GhostFrameExtractor for Nuke
 
-This repository contains 2 gizmos, GhostFrameExtractor and GhostFrameFootageCreator. The first is the core tool and what you would use to seperate ghost frame footage that was shot on a production volume. It splits the footage in HERO frames (those which will be seen in the edit) and MATTE frames. The tool has many different methods for creating new MATTE frames that match perfectly to the HERO frames. 
+This repository contains 2 gizmos, GhostFrameExtractor and GhostFrameFootageCreator. 
+
+*GhostFrameExtractor :* The first is the core tool and what you would use to seperate ghost frame footage that was shot on a production volume. It splits the footage in HERO frames (those which will be seen in the edit) and MATTE frames. The tool has many different methods for creating new MATTE frames that match perfectly to the HERO frames. 
 
 The second gizmo is a simple tool for creating ghost frame footage to play and test with. Since undoubtably clients and production companies may want to see tests before commiting to shooting this way. 
 
