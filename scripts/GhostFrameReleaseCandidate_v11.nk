@@ -1,9 +1,490 @@
-set cut_paste_input [stack 0]
+#! /Applications/Nuke15.1v3/Nuke15.1v3.app/Contents/MacOS/libnuke-15.1.3.dylib -nx
+#write_info Write9 file:"/Volumes/Dettifoss/itaki/GhostFrameExtractor/TEST_FOOTAGE/3D_box_fast/3D_box_fast.%04d.exr" format:"1920 1080 1" chans:":rgba.red:rgba.green:rgba.blue:rgba.alpha:" framerange:"1 185" fps:"0" colorspace:"default (linear)" datatype:"16 bit half" transfer:"unknown" views:"main" colorManagement:"Nuke"
 version 15.1 v3
-push $cut_paste_input
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="2048" y="-916" w="5120" h="2107" maximized="1" screen="1">
+        <splitter orientation="2">
+            <split size="1119"/>
+            <splitter orientation="1">
+                <split size="2000"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                </dock>
+                <split size="1385"/>
+                <dock id="" activePageId="com.adrianpueyo.KnobScripterPane">
+                    <page id="com.adrianpueyo.KnobScripterPane"/>
+                </dock>
+                <split size="40"/>
+                <dock id="" activePageId="Toolbar.1">
+                    <page id="Toolbar.1"/>
+                </dock>
+                <split size="817"/>
+                <dock id="" activePageId="Properties.1">
+                    <page id="Properties.1"/>
+                </dock>
+                <split size="862"/>
+                <dock id="" activePageId="Viewer.2">
+                    <page id="Viewer.1"/>
+                    <page id="Viewer.2"/>
+                </dock>
+            </splitter>
+            <split size="968"/>
+            <splitter orientation="1">
+                <split size="4536"/>
+                <dock id="" hideTitles="1" activePageId="Curve Editor.1">
+                    <page id="Curve Editor.1"/>
+                </dock>
+                <split size="580"/>
+                <dock id="" activePageId="uk.co.thefoundry.scripteditor.2">
+                    <page id="uk.co.thefoundry.scripteditor.2"/>
+                </dock>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /Users/michaelmcreynolds/Dropbox/GhostFrameExtractor/scripts/GhostFrameReleaseCandidate_v11.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ frame 84
+ last_frame 185
+ lock_range true
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+ addUserKnob {20 User}
+ addUserKnob {7 my_new_knob l Multiply_}
+ addUserKnob {7 my_new_knob1 l Multiply_}
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode1
+ tile_color 0x666666ff
+ label "<center><img src=\"DustBust.png\"> Ghost Frame Extraction Example"
+ note_font_size 30
+ xpos 452
+ ypos -655
+ bdwidth 367
+ bdheight 549
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode16
+ tile_color 0x7f7f7f01
+ label "<center><img src=\"Shader.png\"> Ghost Frame Footage Creator\n"
+ note_font_size 30
+ xpos 1038
+ ypos -643
+ bdwidth 703
+ bdheight 1281
+}
+Camera3 {
+ inputs 0
+ shutteroffset centred
+ name Camera4
+ note_font Gotham
+ xpos 1241
+ ypos -92
+}
+CheckerBoard2 {
+ inputs 0
+ format "256 256 0 0 256 256 1 square_256"
+ boxsize 180
+ name CheckerBoard4
+ note_font Gotham
+ xpos 1486
+ ypos -508
+}
+Cube {
+ translate {{curve x1 -3 x40 2.1 x80 -3.1} {curve x1 0} {curve x1 -11 x40 -8 x80 -12}}
+ rotate {{curve x1 0 x40 90 x80 180} {curve x1 0 x40 92.8 x80 180} {curve x1 0 x40 184 x80 360}}
+ name Cube1
+ note_font Gotham
+ xpos 1486
+ ypos -354
+}
+push 0
+ScanlineRender {
+ inputs 3
+ conservative_shader_sampling false
+ shutteroffset centred
+ motion_vectors_type distance
+ MB_channel motion
+ name ScanlineRender5
+ note_font Gotham
+ xpos 1486
+ ypos -71
+}
+TimeBlur {
+ divisions 100
+ shutteroffset centred
+ shuttercustomoffset 0
+ name TimeBlur1
+ note_font Gotham
+ xpos 1485
+ ypos -4
+}
+VectorBlur2 {
+ uv motion
+ scale 3
+ name VectorBlur3
+ note_font Gotham
+ xpos 1486
+ ypos 38
+ disable true
+}
+Dot {
+ name Dot7
+ note_font "Gotham Bold Italic"
+ note_font_size 24
+ note_font_color 0xff
+ xpos 1520
+ ypos 72
+}
+set N9a074000 [stack 0]
+ColorWheel {
+ inputs 0
+ gamma 0.45
+ name ColorWheel3
+ note_font Gotham
+ xpos 1098
+ ypos 117
+}
+Transform {
+ rotate {{curve x1 0 x80 105}}
+ scale {{curve x1 2.46 x80 2.08}}
+ center {960 540}
+ shutteroffset centred
+ shuttercustomoffset {{centred}}
+ name Transform4
+ note_font Gotham
+ xpos 1098
+ ypos 189
+}
+Merge2 {
+ inputs 2
+ bbox B
+ name Merge10
+ label "\[if \{\[value mix]<1\} \{ value mix \}]"
+ note_font Gotham
+ xpos 1394
+ ypos 185
+}
+push 0
+push $N9a074000
+Group {
+ inputs 3
+ name GhostFrameFootageCreator
+ onCreate "def find_logo(logo):\n    nukepaths = nuke.pluginPath()\n    for path in nukepaths:\n        candidate_path = os.path.join(path, logo)\n        if os.path.exists(candidate_path):\n            return candidate_path\n    return False\n\ndef set_logo(logo_path):\n    n = nuke.thisNode()\n    if logo_path:\n        html_path = f\"<img src='\{logo_path\}' width='50'>   \"\n    else:\n        html_path = \"<span style='font-size:45px;'>&#x1F39E;</span>\"\n\n    html_header = (\n        f\"<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'>\"\n        f\"<div><span style='color:#F5F9F1;'>\{html_path\}</span>\"\n        f\"<font size='6'><span style='color:#F5F9F1;'>GhostFrame</span>\"\n        f\"<span style='color:#FFA100;'>FootageCreator</span>\"\n        f\"<font size='3'><span style='color:#CFE6B2;'></span>\"\n        f\"<span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>\"\n    )\n    n\['header'].setValue(html_header)\n    \nlogo = 'GhostFrameFootageCreator.png'\nlogo_path = find_logo(logo)\nset_logo(logo_path)"
+ knobChanged "import nuke\ndef set_volume_color(color):\n    gizmo.knob('custom_color').setVisible(False)\n    if color == 'blue':\n        nuke.toNode('ColorSwitch').knob('which').setValue(0)\n    elif color == 'green':\n        nuke.toNode('ColorSwitch').knob('which').setValue(1)\n    elif color == 'custom':\n        nuke.toNode('ColorSwitch').knob('which').setValue(2)\n        gizmo.knob('custom_color').setVisible(True)\n\ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisable(overlay)\n    gizmo\['font_scale'].setVisable(overlay)\n    all_nodes = nuke.allNodes()\n    if overlay:\n        for node in all_nodes:\n            if node.Class() == 'Text2':\n                node.knob('disable').setValue(False)\n    else:\n        for node in all_nodes:\n            if node.Class() == 'Text2':\n                node.knob('disable').setValue(True)\n                \ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisible(overlay)\n    gizmo\['font_scale'].setVisible(overlay)\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['disable'].setValue(not overlay)\n\ndef font_selector():\n    font_family, font_style = gizmo.knob('font').getValue()\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        try:\n            node\['font'].setValue(font_family, font_style)\n        except:\n            pass\ndef set_font_scale(scale):\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['global_font_scale'].setValue(scale)\n\n\ngizmo = nuke.thisNode()\nk = nuke.thisKnob()\n\nif k.name() == 'volume_color':\n    color = k.value()\n    set_volume_color(color)\nif k.name() == 'overlay':\n    overlay = k.value()\n    toggle_text_overlays(overlay)\nif k.name() == 'font':\n    font_selector()\nif k.name() == 'font_scale':\n    scale = k.value()\n    set_font_scale(scale)\n\n"
+ tile_color 0xff00bfff
+ xpos 1486
+ ypos 310
+ addUserKnob {20 ghost_frame_footage_creator l GhostFrameFootageCreator}
+ addUserKnob {26 header l "" t "Plug in the footage you want to turn into ghost frame test footage. This gizmo alternates placing the matted elements directly on the selected 'volume' color with full complete frames.\n<br>\nIf your footage lacks a matte channel, you can add one.\n<br>\n<i>Note: Since ghost frame footage is typically shot at 48 frames per second, slow-motion footage works best.</i>\n" +STARTLINE T "<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'><div><span style='color:#F5F9F1;'><img src='/Users/michaelmcreynolds/Dropbox/_Library/nuke/NukeShared/Repository/Nodes/Image/GhostFrameFootageCreator.png' width='50'>   </span><font size='6'><span style='color:#F5F9F1;'>GhostFrame</span><span style='color:#FFA100;'>FootageCreator</span><font size='3'><span style='color:#CFE6B2;'></span><span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>"}
+ addUserKnob {26 ""}
+ addUserKnob {4 volume_color l "<font color=#FFA100>volume color</font>" t "<div style=\"position: relative; display: inline-block; border-bottom: 1px dotted black;\"><span style=\"font-weight:bold;\">volume_color:</span><span class=\"tooltiptext\">The color used for the volume in the footage. Options: blue, green, custom.</span></div>\n" M {blue green custom "" "" "" ""}}
+ addUserKnob {18 custom_color l "custom color" +HIDDEN}
+ custom_color {1 0 1}
+ addUserKnob {6 custom_color_panelDropped l "panel dropped state" +HIDDEN +STARTLINE}
+ addUserKnob {6 overlay l "show text overlays" t "<div style=\"position: relative; display: inline-block; border-bottom: 1px dotted black;\"><span style=\"font-weight:bold;\">overlay:</span><span class=\"tooltiptext\">Toggle to show or hide text overlays on the footage.</span></div>\n" +STARTLINE}
+ overlay true
+ addUserKnob {84 font l "" -STARTLINE}
+ font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+ addUserKnob {7 font_scale l "font scale" R 0 2}
+ font_scale 0.5
+ addUserKnob {26 ""}
+ addUserKnob {26 website l "" +STARTLINE T "<font size=3 color =#444444>by        <a href='https://itaki.com' style='color:#666666;'>itaki</a></font>"}
+ addUserKnob {6 color_rgb_panelDropped l "panel dropped state" +HIDDEN +STARTLINE}
+}
+ Input {
+  inputs 0
+  name Input
+  label "\[value number]"
+  xpos -997
+  ypos -171
+ }
+set N812c4200 [stack 0]
+ Input {
+  inputs 0
+  name Inputmask
+  label "\[value number]"
+  xpos -748
+  ypos -172
+  number 1
+ }
+ Switch {
+  inputs 2
+  which {{"!\[exists parent.input1]"}}
+  name Switch1
+  label "\[value which]"
+  xpos -748
+  ypos 254
+ }
+ Dot {
+  name Dot2
+  note_font_size 24
+  note_font_color 0xff
+  xpos -714
+  ypos 321
+ }
+push $N812c4200
+ Dot {
+  name Dot3
+  note_font_size 24
+  note_font_color 0xff
+  xpos -963
+  ypos 207
+ }
+set N812d3800 [stack 0]
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos -997
+  ypos 313
+  disable {{"!\[exists parent.input0]"}}
+ }
+ Constant {
+  inputs 0
+  color {{parent.custom_color x5 0} {parent.custom_color x5 0} {parent.custom_color x5 0} {parent.custom_color x5 0.88}}
+  color_panelDropped true
+  name ConstantCustom
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1239
+  ypos 5
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle1
+  label "\[value in1] - \[value out1]"
+  xpos -1239
+  ypos 125
+ }
+ Constant {
+  inputs 0
+  color {0 1 0 1}
+  color_panelDropped true
+  name ConstantGreen
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1333
+  ypos 6
+ }
+ Constant {
+  inputs 0
+  color {0 0 1 1}
+  color_panelDropped true
+  name ConstantBlue
+  label "\[value color.a]"
+  note_font_size 15
+  xpos -1431
+  ypos 5
+ }
+ Switch {
+  inputs 3
+  patterns {
+   {i0 ""}
+   {i1 ""}
+   {i2 ""}
+  }
+  name ColorSwitch
+  label "\[value which]"
+  xpos -1313
+  ypos 320
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Ghost Frame \[expr \[expr \[frame] / 2] +1]"
+  old_message {{71 104 111 115 116 32 70 114 97 109 101 32 49}
+    }
+  old_expression_markers {{12 12}
+    }
+  box {0 0 {width} {height}}
+  yjustify bottom
+  transforms {{0 2}
+    }
+  cursor_position 40
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name GFText
+  xpos -1313
+  ypos 393
+ }
+ Reformat {
+  format {{{input2.format}}}
+  name ConstantReformat
+  xpos -1313
+  ypos 417
+ }
+ Input {
+  inputs 0
+  name Inputbg
+  label "\[value number]"
+  xpos -1678
+  ypos -118
+  number 2
+ }
+ Dot {
+  name Dot1
+  note_font_size 24
+  note_font_color 0xff
+  xpos -1644
+  ypos 554
+ }
+push $N812d3800
+ Dot {
+  name Dot4
+  note_font_size 24
+  note_font_color 0xff
+  xpos -1500
+  ypos 207
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input2]"}}
+  name Switch3
+  label "\[value which]"
+  xpos -1534
+  ypos 546
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Hero Frame \[expr \[frame] / 2]"
+  old_message {{72 101 114 111 32 70 114 97 109 101 32 52 50}
+    }
+  old_expression_markers {{11 12}
+    }
+  box {0 0 {width} {height}}
+  xjustify right
+  yjustify bottom
+  transforms {{0 2}
+    }
+  cursor_position 29
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name HFText
+  xpos -1534
+  ypos 592
+ }
+ Switch {
+  inputs 2
+  which {{"frame % 2"}}
+  name Switch2
+  label "\[value which]"
+  xpos -1313
+  ypos 587
+ }
+ Merge2 {
+  inputs 2
+  bbox B
+  name Merge3
+  label "\[if \{\[value mix]<1\} \{ value mix \}]"
+  xpos -1002
+  ypos 592
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "Original Frame \[frame]"
+  old_message {{79 114 105 103 105 110 97 108 32 70 114 97 109 101 32 49}
+    }
+  old_expression_markers {{15 15}
+    }
+  box {0 0 {width} {height}}
+  transforms {{0 2}
+    }
+  cursor_position 14
+  font {{ Verdana : Regular : Supplemental/Verdana.ttf : 0 }}
+  global_font_scale 0.5
+  center {640 360}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{0 720}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 640 360 0 0 1 1 0 0 0 0}
+    }
+  name OFText
+  xpos -1002
+  ypos 616
+ }
+ Output {
+  name Output1
+  xpos -1002
+  ypos 787
+ }
+end_group
+Write {
+ channels rgba
+ file /Volumes/Dettifoss/itaki/GhostFrameExtractor/TEST_FOOTAGE/3D_box_fast/3D_box_fast.####.exr
+ file_type exr
+ autocrop true
+ compression "PIZ Wavelet (32 scanlines)"
+ first_part rgba
+ create_directories true
+ version 5
+ ocioColorspace scene_linear
+ display default
+ view sRGB
+ name Write9
+ note_font Gotham
+ xpos 1486
+ ypos 518
+}
+Read {
+ inputs 0
+ file_type mov
+ file ../test_footage/LLDP_close_up_GF_denoised.mp4
+ format "1920 1080 0 0 1920 1080 1 HD_1080"
+ last 193
+ origlast 193
+ origset true
+ auto_alpha true
+ name Read1
+ tile_color 0x989898ff
+ note_font Gotham
+ xpos 599
+ ypos -545
+}
 Group {
  name GhostFrameExtractor
- onCreate "def find_logo(logo):\n    nukepaths = nuke.pluginPath()\n    for path in nukepaths:\n        candidate_path = os.path.join(path, logo)\n        if os.path.exists(candidate_path):\n            return candidate_path\n    return False\n\ndef set_logo(logo_path):\n    n = nuke.thisNode()\n    if logo_path:\n        html_path = f\"<img src='\{logo_path\}' width='50'>   \"\n    else:\n        html_path = \"<span style='font-size:45px;'>&#x1F47B;</span>\"\n\n    html_header = (\n        f\"<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'>\"\n        \n        f\"<div><span style='color:#F5F9F1;'>\{html_path\}</span>\"\n        f\"<font size='6'><span style='color:#F5F9F1;'>GhostFrame</span>\"\n        f\"<span style='color:#FFA100;'>Extractor</span>\"\n        f\"<font size='3'><span style='color:#CFE6B2;'></span>\"\n        f\"<span style='color:#DFD3E7;'>v1.1</span></font></font></div></a>\"\n    )\n    n\['header'].setValue(html_header)\n\n\ndef check_plugs(plugins):\n    \n    all_plugins = nuke.plugins()\n    #all_plugins = \[path for path in all_paths if path.endswith('.dylib')]\n    #print(all_plugins)\n\n    for plugin in all_plugins:\n        for key in plugins:\n            if key in plugin:\n                plugins\[key] = True\n\n    for plugin in plugins:\n        if plugins\[plugin] == True:  # Check the value associated with the key\n            print(f'FOUND \{plugin\}')\n            gizmo.knob(plugin).setValue(True)\n            \n        else:\n            print(f'not found \{plugin\}')\n            gizmo.knob(plugin).setValue(False)\n    return plugins\n\nplugins = \{'forward': True, 'backward': True, 'average_motion': True, 'Blend': True, 'Kronos' : True, 'OFlow' : True, 'VectorGenerator' : True, 'SmartVectors': True, 'ABME' : False, 'RAFT' : False, 'NNFlowVector' : False, 'Twixtor' : False, 'BCC3Optical_Flow' : False, 'S_Retime' : False \}\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\ninstalled_plugins = check_plugs(plugins)\n            \n# List all the options\nparent_methods = \['interpolate', 'vector extract']\nall_interpolation_methods = \['Blend', 'Kronos', 'OFlow', 'ABME', 'Twixtor','BCC3Optical_Flow', 'S_Retime']\nall_vector_generators = \['VectorGenerator', 'SmartVectors', 'ABME', 'RAFT', 'NNFlowVector' ]\nall_vector_post_processors = \['forward', 'backward', 'average_motion', 'OFlow', 'Kronos',  'Twixtor']\n\navailable_interpolation_methods = \[method for method in all_interpolation_methods if method in installed_plugins and installed_plugins\[method]]\navailable_vector_generators = \[generator for generator in all_vector_generators if generator in installed_plugins and installed_plugins\[generator]]\navailable_post_processors = \[process for process in all_vector_post_processors if process in installed_plugins and installed_plugins\[process]]\n# Set all the options\ngizmo.knob('parent_method').setValues(parent_methods)\ngizmo.knob('matte_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('hero_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('vector_generator').setValues(available_vector_generators)\ngizmo.knob('vector_post').setValues(available_post_processors)\n\nlogo = 'GhostFrameExtractor.png'\nlogo_path = find_logo(logo)\nset_logo(logo_path)"
+ onCreate "def find_logo(logo):\n    nukepaths = nuke.pluginPath()\n    for path in nukepaths:\n        candidate_path = os.path.join(path, logo)\n        if os.path.exists(candidate_path):\n            return candidate_path\n    return False\n\ndef set_logo(logo_path):\n    n = nuke.thisNode()\n    if logo_path:\n        html_path = f\"<img src='\{logo_path\}' width='50'>   \"\n    else:\n        html_path = \"<span style='font-size:45px;'>&#x1F47B;</span>\"\n\n    html_header = (\n        f\"<a href='https://www.itaki.com/ghostframeextractor-for-nuke/' style='text-decoration: none;'>\"\n        \n        f\"<div><span style='color:#F5F9F1;'>\{html_path\}</span>\"\n        f\"<font size='6'><span style='color:#F5F9F1;'>GhostFrame</span>\"\n        f\"<span style='color:#FFA100;'>Extractor</span>\"\n        f\"<font size='3'><span style='color:#CFE6B2;'></span>\"\n        f\"<span style='color:#DFD3E7;'>v1.0</span></font></font></div></a>\"\n    )\n    n\['header'].setValue(html_header)\n\n\ndef check_plugs(plugins):\n    \n    all_plugins = nuke.plugins()\n    #all_plugins = \[path for path in all_paths if path.endswith('.dylib')]\n    #print(all_plugins)\n\n    for plugin in all_plugins:\n        for key in plugins:\n            if key in plugin:\n                plugins\[key] = True\n\n    for plugin in plugins:\n        if plugins\[plugin] == True:  # Check the value associated with the key\n            print(f'FOUND \{plugin\}')\n            gizmo.knob(plugin).setValue(True)\n            \n        else:\n            print(f'not found \{plugin\}')\n            gizmo.knob(plugin).setValue(False)\n    return plugins\n\nplugins = \{'forward': True, 'backward': True, 'average_motion': True, 'Blend': True, 'Kronos' : True, 'OFlow' : True, 'VectorGenerator' : True, 'SmartVectors': True, 'ABME' : False, 'RAFT' : False, 'NNFlowVector' : False, 'Twixtor' : False, 'BCC3Optical_Flow' : False, 'S_Retime' : False \}\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\ninstalled_plugins = check_plugs(plugins)\n            \n# List all the options\nparent_methods = \['interpolate', 'vector extract']\nall_interpolation_methods = \['Blend', 'Kronos', 'OFlow', 'ABME', 'Twixtor','BCC3Optical_Flow', 'S_Retime']\nall_vector_generators = \['VectorGenerator', 'SmartVectors', 'ABME', 'RAFT', 'NNFlowVector' ]\nall_vector_post_processors = \['forward', 'backward', 'average_motion', 'OFlow', 'Kronos',  'Twixtor']\n\navailable_interpolation_methods = \[method for method in all_interpolation_methods if method in installed_plugins and installed_plugins\[method]]\navailable_vector_generators = \[generator for generator in all_vector_generators if generator in installed_plugins and installed_plugins\[generator]]\navailable_post_processors = \[process for process in all_vector_post_processors if process in installed_plugins and installed_plugins\[process]]\n# Set all the options\ngizmo.knob('parent_method').setValues(parent_methods)\ngizmo.knob('matte_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('hero_interpolation').setValues(available_interpolation_methods)\ngizmo.knob('vector_generator').setValues(available_vector_generators)\ngizmo.knob('vector_post').setValues(available_post_processors)\n\nlogo = 'GhostFrameExtractor.png'\nlogo_path = find_logo(logo)\nset_logo(logo_path)"
  knobChanged "import nuke\n\ntesting = False\n\n# Helper function to get a node\ndef get_node(name):\n    node = nuke.toNode(name)\n    if node is None and testing:\n        print(f\"Node '\{name\}' not found.\")\n    return node\n\n# Helper function to set knob values\ndef set_knob_value(node_name, knob_values):\n    node = get_node(node_name)\n    if node:\n        for knob_name, knob_value in knob_values.items():\n            knob = node.knob(knob_name)\n            if knob:\n                if isinstance(knob_value, list):\n                    if knob.isAnimated():\n                        knob.clearAnimated()\n                        knob.setAnimated()\n                        for value, frame in knob_value:\n                            knob.setValueAt(value, frame)\n                    else:\n                        knob.setValue(knob_value\[0]\[1])\n                else:\n                    knob.setValue(knob_value)\n\ndef get_frame_range():\n    input_node = gizmo.input(0)\n    if input_node is not None:\n        first_frame = input_node.firstFrame()\n        last_frame = input_node.lastFrame()\n        set_knob_value('InputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        set_knob_value('MatteFrameHold', \{'firstFrame': first_frame + 1\})\n\n        matte_frame = 1 if add_matte_frame() else 0\n        last_frame += matte_frame\n        set_knob_value('AppendMatteFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('EndFrameHold', \{'firstFrame': last_frame - 1\})\n        last_frame += add_end_frame(first_frame, last_frame)\n        set_knob_value('AppendEndFrame', \{'firstFrame': first_frame, 'lastFrame': last_frame\})\n        set_knob_value('OutputFrameRange', \{'first_frame': first_frame, 'last_frame': last_frame\})\n        \n        return \[first_frame, last_frame]\n    return \[1, 100]\n\ndef add_matte_frame():\n    add_frame_switch = get_node('add_frame_switch')\n    if gizmo\['add_frame'].value():\n        add_frame_switch\['which'].setValue(1)\n        return True\n    else:\n        add_frame_switch\['which'].setValue(0)\n        return False\n\ndef add_end_frame(first_frame, last_frame):\n    total_frames = last_frame - first_frame\n    add_end_frame_switch = get_node('add_end_frame_switch')\n    if total_frames % 2 != 0:\n        add_end_frame_switch\['which'].setValue(1)\n        return 1\n    else:\n        add_end_frame_switch\['which'].setValue(0)\n        return 0\n\ndef propogate_frame_range(frame_range):\n    f, l = frame_range\n    new_last_frame = ((l - f) * 2) + f\n    hero_last_frame = (l - f - 1) // 2 + f\n    if testing:\n        print(f'Refreshing frame range, first frame \{f\}, last frame \{l\}')\n\n    nodes = \{\n        'PlateRetime': \{'input.first': f, 'input.last': l, 'output.first': f, 'output.last': new_last_frame\},\n        'OFlowPlateBlend': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowPlate': \{'input.first': f, 'input.last': l, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorPlate': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'BCCOpticalFlow1': \{'start_offset_frame': f\},\n        'S_Retime1': \{'start_frame': f\},\n        'RetimeInterpolated': \{'input.first': f + 1, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\},\n        'HeroRetime': \{'input.first': f + 1, 'input.last': l, 'output.first': f, 'output.last': hero_last_frame\},\n        'DoublePlateFrames': \{'input.first': f, 'input.last': new_last_frame, 'timingFrame2': \[(f, f), ((new_last_frame * 2) - 1, new_last_frame)]\},\n        'OFlowBlend': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'KronosHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'OFlowHero': \{'input.first': f, 'input.last': l - 1, 'timingFrame2': \[(f, f), (l, new_last_frame)]\},\n        'TwixtorHero': \{'StartFrame': f, 'LastFrame': l, 'Frame': \[(f, f), (l, new_last_frame)]\},\n        'OutputFrameRange2': \{'first_frame': f, 'last_frame': hero_last_frame\},\n        'RetimeExtracted': \{'input.first': f, 'input.last': new_last_frame, 'output.first': f, 'output.last': l\}\n    \}\n\n    for node_name, knob_values in nodes.items():\n        set_knob_value(node_name, knob_values)\n\ndef output_type(output):\n    if output == 'hero plate':\n        set_knob_value('output_switch', \{'which': 1\})\n        gizmo\['tile_color'].setValue(131583)\n        gizmo\['matte_extraction_group'].setVisible(False)\n\n    else:\n        set_knob_value('output_switch', \{'which': 0\})\n        gizmo\['tile_color'].setValue(131071)\n        gizmo\['matte_extraction_group'].setVisible(True)\n\ndef select_parent_method(parent_method):\n    method_index = \{'interpolate': 0, 'vector extract': 1, 'average': 2\}.get(parent_method, 0)\n    set_knob_value('parent_method_switch', \{'which': method_index\})\n    gizmo\['interpolation_group'].setVisible(parent_method == 'interpolate')\n    gizmo\['extract_group'].setVisible(parent_method in \['vector extract', 'average'])\n\ndef select_matte_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('interpolated_switch', \{'which': method_index\})\n    gizmo\['giblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['gikronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['gioflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['giabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['gitwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['giboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['gisapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime_interpolate', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorPlate', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow1', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime1', \{'disable': interpolation_method != 'S_Retime'\})\n\n    interpolated_switch = get_node('interpolated_switch')\n    time_offset = get_node('TimeOffset2')\n\n    if interpolated_switch and time_offset:\n        # Disconnect TimeOffset2 from interpolated_switch\n        for i in range(interpolated_switch.inputs()):\n            if interpolated_switch.input(i) == time_offset:\n                interpolated_switch.setInput(i, None)\n                break\n\n    # Reconnect TimeOffset2 to input 5 of interpolated_switch if selected\n    if method_index == 5 and interpolated_switch and time_offset:\n        interpolated_switch.setInput(5, time_offset)\n    \n        \n\ndef select_hero_interpolation_method(interpolation_method):\n    method_index = \{'Blend': 0, 'Kronos': 1, 'OFlow': 2, 'ABME': 3, 'Twixtor': 4, 'BCC3Optical_Flow': 5, 'S_Retime': 6\}.get(interpolation_method, 0)\n    set_knob_value('hero_interpolation_swtich', \{'which': method_index\})\n    gizmo\['vgblend'].setVisible(interpolation_method == 'Blend')\n    gizmo\['vgkronos'].setVisible(interpolation_method == 'Kronos')\n    gizmo\['vgoflow'].setVisible(interpolation_method == 'OFlow')\n    gizmo\['vgabme'].setVisible(interpolation_method == 'ABME')\n    gizmo\['vgtwixtor'].setVisible(interpolation_method == 'Twixtor')\n    gizmo\['vgboris'].setVisible(interpolation_method == 'BCC3Optical_Flow')\n    gizmo\['vgsapphire'].setVisible(interpolation_method == 'S_Retime')\n    set_knob_value('ABME_Retime3', \{'disable': interpolation_method != 'ABME'\})\n    set_knob_value('TwixtorHero', \{'disable': interpolation_method != 'Twixtor'\})\n    set_knob_value('BCCOpticalFlow2', \{'disable': interpolation_method != 'BCC3Optical_Flow'\})\n    set_knob_value('S_Retime2', \{'disable': interpolation_method != 'S_Retime'\})\n    \n    interpolated_switch = nuke.toNode('hero_interpolation_swtich')\n    time_offset = get_node('TimeOffset4')\n    \n    if interpolated_switch and time_offset:\n        # Disconnect TimeOffset2 from interpolated_switch\n        for i in range(interpolated_switch.inputs()):\n            if interpolated_switch.input(i) == time_offset:\n                interpolated_switch.setInput(i, None)\n                break\n\n    # Reconnect TimeOffset2 to input 5 of interpolated_switch if selected\n    if method_index == 5 and interpolated_switch and time_offset:\n        interpolated_switch.setInput(5, time_offset)\n\ndef select_hero_vector_generator(vector_generator):\n    method_index = \{'VectorGenerator': 0, 'SmartVectors': 1, 'ABME': 2, 'RAFT': 3, 'NNFlowVector': 4\}.get(vector_generator, 0)\n    set_knob_value('vector_switch', \{'which': method_index\})\n    gizmo\['vectorgenerator'].setVisible(vector_generator == 'VectorGenerator')\n    gizmo\['smartvector'].setVisible(vector_generator == 'SmartVectors')\n    gizmo\['abme'].setVisible(vector_generator == 'ABME')\n    gizmo\['raft'].setVisible(vector_generator == 'RAFT')\n    gizmo\['nnflowvector'].setVisible(vector_generator == 'NNFlowVector')\n    set_knob_value('ABME_SV1', \{'disable': vector_generator != 'ABME'\})\n    set_knob_value('RAFT1', \{'disable': vector_generator != 'RAFT'\})\n    set_knob_value('NNFlowVector1', \{'disable': vector_generator != 'NNFlowVector'\})\n\ndef set_uv_channels(vector_post_processor):\n    method_index = \{'forward': 0, 'backward': 1, 'average_motion': 2, 'OFlow': 3, 'Kronos': 4, 'Twixtor': 5\}.get(vector_post_processor, 0)\n    set_knob_value('SwitchMotionType', \{'which': method_index\})\n    gizmo\['vpost_oflow'].setVisible(vector_post_processor == 'OFlow')\n    gizmo\['vpost_kronos'].setVisible(vector_post_processor == 'Kronos')\n    gizmo\['vpost_twixtor'].setVisible(vector_post_processor == 'Twixtor')\n\ndef set_distortion_method(distortion_method):\n    method_index = 1 if distortion_method == 'IDistort' else 0\n    set_knob_value('SwitchBackward', \{'which': method_index\})\n    set_knob_value('SwitchForward', \{'which': method_index\})\n\ndef label_setter():\n    output_type = gizmo\['output_type'].value()\n    if output_type == 'hero plate':\n        label = 'HERO'\n    else:\n        parent_method = gizmo\['parent_method'].value()\n        if parent_method == 'interpolate':\n            label = gizmo\['matte_interpolation'].value()\n        else:\n            label = f\"\{gizmo\['hero_interpolation'].value()\}\\n\{gizmo\['vector_generator'].value()\}\\n\{gizmo\['distortion_method'].value()\}\\n\{gizmo\['vector_post'].value()\}\"\n    gizmo\['label'].setValue(label)\n    \ndef create_shuffle():\n    # Get the root node\n    root = nuke.root()\n    \n    # Deselect all nodes to ensure the new node is correctly connected to the gizmo\n    for node in nuke.allNodes():\n        node\['selected'].setValue(False)\n    \n    # Create a new Shuffle2 node in the root context\n    with root:\n        shuffle_node = nuke.createNode('Shuffle2')\n    \n    # Set the properties to shuffle the 'matte' layer into the RGB channels\n    shuffle_node\['in1'].setValue('matte')\n    shuffle_node\['in2'].setValue('none')\n\n\n    # Set the mappings\n    mappings = \[\n        (0, 'matte.red', 'rgba.red'),\n        (0, 'matte.green', 'rgba.green'),\n        (0, 'matte.blue', 'rgba.blue'),\n        (-1, 'white', 'rgba.alpha')  # Use 'white' to map matte.alpha to 1\n    ]\n    shuffle_node\['mappings'].setValue(mappings)\n    \n    # Enable the postage stamp for easier identification\n    shuffle_node\['postage_stamp'].setValue(True)\n    \n    # Set the label for easier identification in the node graph\n    shuffle_node\['label'].setValue('Matte to RGB')\n    \n    # Position the node below the gizmo for better visibility\n    shuffle_node.setXYpos(gizmo.xpos(), gizmo.ypos() + 100)\n    \n    # Connect the shuffle node to the gizmo's output\n    shuffle_node.setInput(0, gizmo)\n\ndef twixfix(value):\n    for node in (n for n in gizmo.nodes() if n.Class() == 'Switch' and 'MSwitch' in n\['name'].value()):\n        nuke.toNode(node\['name'].value())\['which'].setValue(value)\n\n                \n\ndef toggle_text_overlays(overlay):\n    gizmo\['font'].setVisible(overlay)\n    gizmo\['font_scale'].setVisible(overlay)\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['disable'].setValue(not overlay)\n\ndef font_selector():\n    font_family, font_style = gizmo.knob('font').getValue()\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        try:\n            node\['font'].setValue(font_family, font_style)\n        except:\n            pass\n\n\ndef set_font_scale(scale):\n    text_nodes = \[node for node in nuke.allNodes() if node.Class() == 'Text2']\n    for node in text_nodes:\n        node\['global_font_scale'].setValue(scale)\n\n# Use a variable to store the current node\ngizmo = nuke.thisNode()\nk = nuke.thisKnob()  # the knob that activated knobChanged\nframe_range_changing_knobs = \['inputChange', 'add_frame', 'output_type', 'refresh']\n\n# Turns on knobs when testing\ngizmo\['print_all_knobs'].setVisible(testing)\n\n# Define a mapping of knob names to functions\nknob_function_map = \{\n    'text_overlays': lambda: toggle_text_overlays(k.value()),\n    'font': lambda: font_selector(),\n    'font_scale': lambda: set_font_scale(k.value()),\n    'twixfix': lambda: twixfix(k.value()),\n    'output_type': lambda: (output_type(k.value()), label_setter()),\n    'parent_method': lambda: (select_parent_method(k.value()), label_setter()),\n    'create_shuffle': lambda: (create_shuffle()),\n    'matte_interpolation': lambda: (select_matte_interpolation_method(k.value()), label_setter()),\n    'hero_interpolation': lambda: (select_hero_interpolation_method(k.value()), label_setter()),\n    'vector_generator': lambda: (select_hero_vector_generator(k.value()), label_setter()),\n    'distortion_method': lambda: (set_distortion_method(k.value()), label_setter()),\n    'vector_post': lambda: (set_uv_channels(k.value()), label_setter()),\n    'difference_viewer': lambda: set_knob_value('diff_switch', \{'which': int(k.value())\})\n\}\n\n# Only take action if the particular knob was changed\nif k.name() in frame_range_changing_knobs:\n    frame_range = get_frame_range()\n    propogate_frame_range(frame_range)\nif k.name() in knob_function_map:\n    knob_function_map\[k.name()]()\n"
  tile_color 0x1ffff
  label Kronos
@@ -2757,3 +3238,49 @@ push $N81766800
   ypos -1969
  }
 end_group
+set N812f2200 [stack 0]
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 matte
+ fromInput2 {{0} B}
+ mappings "4 matte.red 0 0 rgba.red 0 0 matte.green 0 1 rgba.green 0 1 matte.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+ name Shuffle1
+ label "Matte to RGB"
+ note_font Gotham
+ xpos 678
+ ypos -291
+ postage_stamp true
+}
+push $N812f2200
+Dot {
+ name Dot1
+ note_font "Gotham Bold Italic"
+ note_font_size 24
+ note_font_color 0xff
+ xpos 577
+ ypos -258
+}
+push $N812f2200
+Viewer {
+ frame_range 1-100
+ frame_range_lock true
+ monitorOutNDISenderName "NukeX - GhostFrameReleaseCandidate_v11 - Viewer2"
+ monitorOutOutputTransform rec709
+ name Viewer2
+ tile_color 0x323232ff
+ note_font Gotham
+ xpos 599
+ ypos -158
+ addUserKnob {20 viewerLockInputStates +INVISIBLE}
+ addUserKnob {26 READ_ME -STARTLINE +INVISIBLE T "The following knobs are needed for the Viewer Lock\n    plugin to function. If you don't have Viewer Lock,\n    you can safely ignore or delete them.\n\n    If they're causing problems, let me know at\n    matt_roe@live.com.\n    "}
+ addUserKnob {6 inputState0 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState1 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState2 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState3 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState4 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState5 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState6 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState7 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState8 +INVISIBLE +STARTLINE}
+ addUserKnob {6 inputState9 +INVISIBLE +STARTLINE}
+}
