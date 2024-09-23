@@ -2,6 +2,7 @@
 # Ignore this stuff specifically
 _*
 *_log.json
+*.err0.json
 *.nk~
 *.autosave
 
