@@ -6,7 +6,7 @@ This repository contains 2 gizmos, GhostFrameExtractor and GhostFrameFootageCrea
 
 *GhostFrameFootageCreator :* is a simple tool for creating ghost frame footage to play and test with. Since undoubtably clients and production companies may want to see tests before commiting to shooting this way. 
 
-Also contained in this repository are some Nuke scripts showing simple examples as well as a bunch footage that was shot ghost frame as well as generated test footage. 
+Also contained in this repository are some Nuke scripts showing simple examples as well as a bunch footage that was shot ghost frame as well as generated test footage. Please note that the footage is provided as mp4 due to size limitations. However, motion vectors and optical flow plugins don't really like mp4 so you should convert these first to ProRes or exr or something that is frame based.
 
 The gizmos can be installed using the script in the gizmo directly, just put the GhostFrameGizmos folder in your .nuke directory and add 
 ```python
