@@ -1,0 +1,122 @@
+#! /Applications/Nuke15.1v3/Nuke15.1v3.app/Contents/MacOS/libnuke-15.1.3.dylib -nx
+version 15.1 v3
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="2048" y="-916" w="5120" h="2107" maximized="1" screen="1">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="3250" stretch="1"/>
+            <splitter orientation="2">
+                <split size="2091"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="585"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+                <page id="Scenegraph.1"/>
+            </dock>
+            <split size="1233"/>
+            <splitter orientation="2">
+                <split size="1440"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="647"/>
+                <splitter orientation="1">
+                    <split size="295"/>
+                    <splitter orientation="2">
+                        <split size="647"/>
+                        <dock id="" activePageId="Pixel Analyzer.1">
+                            <page id="Pixel Analyzer.1"/>
+                        </dock>
+                    </splitter>
+                    <split size="440"/>
+                    <dock id="" activePageId="com.adrianpueyo.KnobScripterPane">
+                        <page id="com.adrianpueyo.KnobScripterPane"/>
+                    </dock>
+                    <split size="490"/>
+                    <splitter orientation="2">
+                        <split size="647"/>
+                        <dock id="" activePageId="uk.co.thefoundry.vectorscope.1">
+                            <page id="uk.co.thefoundry.histogram.1"/>
+                            <page id="uk.co.thefoundry.waveformscope.1"/>
+                            <page id="uk.co.thefoundry.vectorscope.1"/>
+                        </dock>
+                    </splitter>
+                </splitter>
+            </splitter>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /Users/michaelmcreynolds/Dropbox/GhostFrameExtractor/scripts/twixtor_test.nk
+ project_directory "\[file dirname \[value name]]"
+ lock_range true
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ render_mode top-down
+ colorManagement OCIO
+ defaultViewerLUT "OCIO LUTs"
+ workingSpaceLUT scene_linear
+ monitorLut sRGB
+ monitorOutLUT 2
+ int8Lut matte_paint
+ int16Lut texture_paint
+ logLut compositing_log
+ floatLut scene_linear
+ views_button false
+ free_type_system_fonts false
+}
+Viewer {
+ inputs 0
+ frame 1
+ frame_range 1-100
+ monitorOutNDISenderName "NukeX - untitled - Viewer1"
+ name Viewer1
+ tile_color 0x323232ff
+ note_font Gotham
+ xpos -40
+ ypos -9
+}
+OFXcom.revisionfx.twixtor_v5 {
+ inputs 0
+ Display "Twixtored Output"
+ UseGPU ON
+ TimeRetimeMethod Speed
+ Speed 100
+ Frame 0
+ TrackingQuality Twixtor7_MAX
+ setKnobFlags {TrackingQuality +HIDDEN}
+ TrackingQualityV2 "DNN - model 1"
+ TrackingQualitySelector "Select Quality"
+ GlobalMotion false
+ MotionSensitivity 70
+ ImagePrep "Gamma Enhance (Trk src is linear?)"
+ TrackRGBA false
+ Video360 false
+ FrameInterp Nearest
+ Warping Inverse
+ SmartBlend false
+ MotionBlurCompensation 0
+ MarkSegments "Cut A"
+ MarkSegmentsSelector "Select Cut"
+ StartFrame 1
+ LastFrame 30000
+ CustomData_DoNotEdit aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ name Twixtor1
+ note_font Gotham
+ selected true
+ xpos -38
+ ypos -152
+}
