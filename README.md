@@ -12,7 +12,7 @@ The gizmos can be installed using the script in the gizmo directly, just put the
 ```python
 nuke.pluginAddPath( 'GhostFrameGizmos' )
 ```
-to your menu.py file. Then you can just go to Nodes -> Image -> GhostFrameExtractor to create the gizmo. 
+to your menu.py file. Then you can just go to *Nodes -> Image -> GhostFrameExtractor* to create the gizmo. 
 
 But the better way to install them would be through a gizmo manager like [NukeShared](https://maxvanleeuwen.com/project/nukeshared/) and just putting them and the icons in the ./Repository/Nodes/Image directory.
 
